@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Pragma" CONTENT="no-cache">
+<meta name="description" content="">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+<title>微信安全支付</title>
+<link href="{:ADDON_PUBLIC_PATH}/../Template/default/style/weui.css" rel="stylesheet" type="text/css">
+<script src="{:ADDON_PUBLIC_PATH}/../Template/default/js/jquery.min.js"></script>
+<!--
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>-->
+		
+		<script>
+		//var urlhost=window.location.host;
+		/*
+		var urlhost="http://"+"{$url}";
+		var imgUrl = urlhost+"__ROOT__{$cpdata.icon|get_cover='path'}";
+		//alert(imgUrl);
+		var lineLink = urlhost+'/index.php?s=addon/WeiX/WeiX/iteminfo/itemid/{$cpdata.id}/vcode/{$vcode}.html';
+		var shareTitle='{$cpdata.item_name}';
+		var descContent = '限时抢购，{$cpdata.item_name}'+'仅售{$cpdata.price}元，机不可失哦。';
+		  wx.config({
+			appId: '{$signPackage.appId}',
+			timestamp: '{$signPackage.timestamp}',
+			nonceStr: '{$signPackage.nonceStr}',
+			signature: '{$signPackage.signature}',
+			jsApiList: [
+			  // 所有要调用的 API 都要加到这个列表中
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage'
+			]
+		  });
+		  wx.ready(function () {
+
+			// 在这里调用 API
+				wx.onMenuShareAppMessage({
+				  title: shareTitle,
+				  desc: descContent,
+				  link: lineLink,
+				  imgUrl: imgUrl,
+				  trigger: function (res) {
+					//alert('用户点击发送给朋友');
+				  },
+				  success: function (res) {
+					//alert('已分享');
+				  },
+				  cancel: function (res) {
+					//alert('已取消');
+				  },
+				  fail: function (res) {
+					//alert(JSON.stringify(res));
+				  }
+				});
+				wx.onMenuShareTimeline({
+				  title: shareTitle,
+				  link: lineLink,
+				  imgUrl: imgUrl,
+				  trigger: function (res) {
+					//alert('用户点击分享到朋友圈');
+				  },
+				  success: function (res) {
+					//alert('已分享');
+				  },
+				  cancel: function (res) {
+					//alert('已取消');
+				  },
+				  fail: function (res) {
+					//alert(JSON.stringify(res));
+				  }
+				});
+			wx.showOptionMenu();
+			  // 2. 分享接口
+			  // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+
+			
+			  //wx.hideOptionMenu();
+
+			  
+			
+		  });
+		  */
+		function jsApiCall()
+		{
+			WeixinJSBridge.invoke(
+				'getBrandWCPayRequest',
+				<?php echo $jsApiParameters; ?>,
+				function(res){
+					WeixinJSBridge.log(res.err_msg);
+					//alert(res.err_msg);
+					if(res.err_msg=='get_brand_wcpay_request:ok')
+					{
+						//alert('{$return_url}');
+						document.getElementById('payDom').style.display='none';
+						document.getElementById('successDom').style.display='block';
+						setTimeout("window.location.href = '{$return_url}'",2000);
+						//window.location.href = '{$return_url}';
+						//window.location.href = '/index.php?s=addon/WeiX/WeiX/buySucess/itemid/92516/vcode/0.html';
+					}
+					else
+					{
+						document.getElementById('payDom').style.display='none';
+						document.getElementById('failDom').style.display='block';
+						//document.getElementById('failRt').innerHTML=res.err_msg;
+					}					
+				}
+			);
+		}
+
+		function callpay()
+		{
+			if (typeof WeixinJSBridge == "undefined"){
+			    if( document.addEventListener ){
+			        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+			    }else if (document.attachEvent){
+			        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+			        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+			    }
+			}else{
+			    jsApiCall();
+			}
+		}
+		</script>
+
+</head>
+
+<body>
+	<div class="weui-msg" id="payDom">
+    <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+    <div class="weui-msg__text-area">
+        <h2 class="weui-msg__title">等待支付</h2>
+        <p class="weui-msg__desc">请完成支付</p>
+    </div>
+    
+</div>
+   <div id="failDom" style="display:none" class="weui-msg">
+	<div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+    <div class="weui-msg__text-area">
+        <h2 class="weui-msg__title">支付失败</h2>
+        <p class="weui-msg__desc"><a href="javascript:callpay();" id="confirm_btn" class="weui-dialog__btn weui-dialog__btn_primary">重新进行支付</a></p>
+    </div>
+
+	</div>
+
+	<div id="successDom" style="display:none" class="weui-msg">
+	<div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+    <div class="weui-msg__text-area">
+        <h2 class="weui-msg__title">支付成功</h2>
+        <p class="weui-msg__desc">正在返回商户页面</p>
+    </div>
+	</div>
+	<script>callpay();</script>   	
+</body>
+
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Pragma" CONTENT="no-cache">
+<meta name="description" content="">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+		<title>赠送优惠券</title>
+		
+		<link rel="stylesheet" href="style/fen.css"/>
+		 <script src="{:ADDON_PUBLIC_PATH}/../Template/amy/js/jquery-1.10.2.min.js"></script>
+		 <script src="{:ADDON_PUBLIC_PATH}/../Template/amy/js/jquery.cookie.js"></script>
+         <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+         <script>
+   
+		//var urlhost=window.location.host;
+		var urlhost="http://"+"{$url}";
+		var isgive='{$list_data.is_give}';
+		var rand_code='{$rand_code}';
+		var imgUrl = urlhost+"__ROOT__{$list_data.pic|get_cover='path'}";
+		//alert(imgUrl);
+		var lineLink = urlhost+'/index.php?s=addon/WeiX/WeiX/shareCoupon/rand_code/'+rand_code+'.html';
+		var shareTitle='您的好友送您一张{$list_data.title}';
+		var descContent = '{$list_data.miaoshu}';
+		  wx.config({
+			appId: '{$signPackage.appId}',
+			timestamp: '{$signPackage.timestamp}',
+			nonceStr: '{$signPackage.nonceStr}',
+			signature: '{$signPackage.signature}',
+			jsApiList: [
+			  // 所有要调用的 API 都要加到这个列表中
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage'
+			]
+		  });
+		  wx.ready(function () {
+
+			// 在这里调用 API
+				wx.onMenuShareAppMessage({
+				  title: shareTitle,
+				  desc: descContent,
+				  link: lineLink,
+				  imgUrl: imgUrl,
+				  trigger: function (res) {
+					//alert('用户点击发送给朋友');
+				  },
+				  success: function (res) {
+					//alert('已分享');
+					sharestart();
+				  },
+				  cancel: function (res) {
+					//alert('已取消');
+				  },
+				  fail: function (res) {
+					//alert(JSON.stringify(res));
+				  }
+				});
+				wx.onMenuShareTimeline({
+				  title: shareTitle,
+				  link: lineLink,
+				  imgUrl: imgUrl,
+				  trigger: function (res) {
+					//alert('用户点击分享到朋友圈');
+				  },
+				  success: function (res) {
+					//alert('已分享');
+					sharestart();	
+				  },
+				  cancel: function (res) {
+					//alert('已取消');
+				  },
+				  fail: function (res) {
+					//alert(JSON.stringify(res));
+				  }
+				});
+			if (isgive=='0')
+			{
+				wx.hideOptionMenu();
+			}
+			else
+			{
+				wx.showOptionMenu();
+			}
+			
+		  });
+		
+		</script>
+         </script>
+	</head>
+	<body style="background: #F9F7FA;">
+		<if condition="($listcnt gt 0)">
+           <div class="body" style="background: url('images/djq-xq.png') no-repeat;background-size: 100% 100%;">
+			<!--上半部分-->
+			<div class="head">
+				<div class="first">
+				      优惠券
+				</div>
+				<div class="second">
+					<div class="line">
+						<div class="tiao"></div>
+					</div>
+					<div class="date">
+						有效日期至：&nbsp;{$list_data['exp_time']}
+					</div>
+					<div class="line">
+						<div class="tiao1"></div>
+					</div>
+					
+				</div>
+				<div class="three">
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="td1">
+						<if condition="($list_data['mianzhi'] eq 0.00)" >	
+							<!--面值为0时，显示名称-->
+								<span class="money" style="display: inline-block;width: 200%;text-align: center;font-size: 20px;position: relative;top:-20px;">{$list_data['title']}</span>		
+						<elseif condition="($list_data['mianzhi'] neq 0) AND ($list_data['start_amt'] eq 0)" />
+						
+						 <span class="money">{$list_data['mianzhi']}</span>&nbsp;<span class="yuan">元</span><br>
+						<span class="yuan">无门槛</span>
+						<else />
+						<span class="money">{$list_data['mianzhi']}</span>&nbsp;<span class="yuan">元</span><br>
+						     <span class="yuan">满{$list_data['start_amt']}元可用</span>
+						</if>
+						    						    
+								
+								
+							</td>
+							<td class="td2" style="position: relative;top: 20px;">
+								<div class="heng1"></div>
+								<br />
+								<if condition="($list_data['is_give'] eq 0)">
+								     <div class="heng"><span>不可转赠</span></div>
+								<else />	
+								     <div class="heng"><span>可转赠</span></div>
+								</if>	
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!--下半部分-->
+			<div class="xia">
+				<div class="wen" style="text-align: left;">
+					{$list_data['miaoshu']}
+				</div>
+				<!--分享给好友按钮-->
+				<if condition="($list_data['is_give'] eq 0)">
+								    
+								<else />	
+				<div class="an" style="background: url('{:images/ys-anniu.png') no-repeat;background-size: 100% 100%;">转赠给好友</div> 
+								</if>	
+                <div class="cha"  style="background: url('images/ys-anniu.png') no-repeat;background-size: 100% 100%;">查看可用门店</div> 
+			</div>
+			
+			<!--新加-->
+			<div style="text-align:center;padding-bottom:80px;margin-top: 40px;" >
+			<img src="http://qr.liantu.com/api.php?text={$qrurl}" width="200px"/>
+           </div>
+			
+		</div>	
+		<else />
+		  <div style="margin-top: 60px;width: 100%;text-align: center;">抱歉，该优惠券已被赠送。</div>
+					
+		</if>	
+		<!--底部菜单栏-->
+		<div style="width: 100%;height: 61px;clear: both;"></div>
+		
+		<div class="foot">
+			<span class="foot_span">
+				<a href="show.html">
+				<img src="images/foot7.png" />
+				<span>商城</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="show1.html">
+				<img src="images/foot2.png" />
+				<span>票券</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="myshop.html">
+				<img src="images/foot3.png" />
+				<span>购物车</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="usercenter.html">
+				<img src="images/foot6.png" />
+				<span>我的</span>
+				</a>
+			</span>
+		</div>
+		
+		
+		<!--分享的弹框-->
+		        <div class="huimo"></div>
+		        <img src="images/tishi@1x.png"  class="zhi"/>
+	        <!--是否接受转赠的模态窗口-->
+	  <div class="huimo1 jie huimo2" style="z-index: 9999;display: block;" id=""></div>
+		<div id="dialog1" class="jie" style="height: 180px;display: block;">
+			<div class="weui-mask"></div>
+			<div class="weui-dialog">
+				<div class="weui-dialog__hd" style="height: 40px;text-align: center;margin-top: 25px;"><strong class="weui-dialog__title">接受转赠</strong></div>
+				<div class="weui-dialog__bd" id="warn_content1">是否接受好友赠送的优惠券？</div>
+				<div class="weui-dialog__ft" style="position: absolute;bottom: 40px;">
+					<a href="javascript:;" id="btn_no" alerttype='0' class="weui-dialog__btn weui-dialog__btn_primary" style="background: url('images/anniu.png') no-repeat;background-size: 100% 100%;text-decoration: none;display: inline-block;width:35%;float: left;">暂不接受</a>
+					<a href="javascript:;" id="btn_yes" alerttype='0' class="weui-dialog__btn weui-dialog__btn_primary" style="background: url('images/anniu.png') no-repeat;background-size: 100% 100%;text-decoration: none;display: inline-block;width:35%;float: right;margin-right:6%;">确定接受</a>
+				</div>
+			</div>
+		</div>
+	        <!--是否转赠成功的模态窗口-->
+	  <div class="huimo1 zhuan" style="z-index: 9999;display: none;" id=""></div>
+		<div id="dialog" class="zhuan" style="display: none;">
+			<div class="weui-mask"></div>
+			<div class="weui-dialog" style="margin-bottom: 20px;">
+				<div class="weui-dialog__hd" style="height: 20px;"><strong class="weui-dialog__title"></strong></div>
+				<div class="weui-dialog__bd" id="warn_content"></div>
+				<div style="text-align: center;display: none;" id="wei"><img src="" id="er" width="150px"/></div>
+				<div class="weui-dialog__ft">
+					<a href="javascript:;" id="confirm_btn" alerttype='0' class="weui-dialog__btn weui-dialog__btn_primary" style="background: url('images/anniu.png') no-repeat;background-size: 100% 100%;text-decoration: none;">确定</a>
+				</div>
+			</div>
+		</div>
+	        
+	        
+	   
+			
+	</body>
+	<script>
+		var height = document.documentElement.clientHeight+"px";
+function warn_alert(content,alertType)
+{
+	$("#warn_content").html(content);
+	$(".huimo1").css("height",height);
+	$("#dialog").css('display','block');
+	$(".huimo1").css('display','block');
+	if(alertType!=0){
+		$("#wei").css("display","block");
+		$("#er").attr('src',alertType);
+	}else{
+		$("#wei").css("display","none");
+	}
+	
+	
+}
+		
+		
+		$(function(){
+			$(".huimo2").css("height",height);
+				/*点击分享图片，隐藏弹框*/
+			$(".zhi").click(function(){
+				 $(".huimo").css('display','none');
+	               $(".zhi").css('display','none');
+			})
+			/*点击查看门店*/
+			$(".cha").click(function(){
+				window.location.href='/index.php?s=addon/WeiX/WeiX/mendianmap/from_url/coupon/xl_id/{$list_data['xl_id']}';
+			})
+			
+			/*点击分享好友，显示模态框*/
+			$(".an").click(function(){
+				/*获取可视窗口的高度*/
+			var height = document.documentElement.clientHeight+"px";
+				$(".huimo").css("display","block");
+			$(".huimo").css("height",height);
+			$(".zhi").css("display","block");			
+			})
+			
+			/*点击确定按钮，隐藏提示窗口 */
+			$("#confirm_btn").click(function(event) {
+				$("#dialog").css('display','none');
+	               $(".huimo1").css('display','none');
+	               $(".huimo").css('display','none');
+	               $(".zhi").css('display','none');
+           });
+           /*点击接受与不接受*/
+ $("#btn_no").click(function(event) {
+	$(".jie").css('display','none');
+	
+});
+ $("#btn_yes").click(function(event) {
+	$(".jie").css('display','none');
+	shareaccept();
+	
+	
+});
+		})
+function shareaccept(){
+ var rand_code='{$rand_code}';
+	$.ajax({
+		type: "Post",
+		url: "/index.php?s=addon/WeiX/Shop/acceptShare.html",
+		// url: "/home/line/zp_testtest",
+		data:{rand_code:rand_code},
+		success: function(result) {
+			var result = JSON.parse(result);
+			if (result[0]==1) {
+				
+				warn_alert("成功接受转赠",0);
+				//$("#sub-btn").removeAttr("disabled");
+			}
+			else if(result[0]==0){
+				 warn_alert("接受转赠失败",0);
+				//$("#sub-btn").removeAttr("disabled");
+			}
+			else if(result[0]==2){
+				 warn_alert("接受转赠成功<br />识别二维码，享受更多权益",result[1]);
+				//$("#sub-btn").removeAttr("disabled");
+			}
+			
+		},
+		error: function(err) {
+		warn_alert("操作失败，请确认您的网络通畅。",0);
+		//$("#sub-btn").removeAttr("disabled");
+		}
+	});
+}
+	</script>
+</html>

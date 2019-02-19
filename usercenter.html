@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的</title>
+		<link rel="stylesheet" href="style/shop.css" />
+		<link rel="stylesheet" href="style/usercenter.css" />
+		<script src="js/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		
+		<!--头像-->
+		<div class="photo"> 
+		   <div class="tou" style="background: url(images/wd2.png) no-repeat;background-size: cover;"></div>
+		   <div class="name" style="font-family: 华云行楷;">东站升幅</div>
+		   <div class="yu">
+		   	  <img src="images/wd4.png" height="19px" width="19px" class="photo_left"/>
+		   	  <span class="photo_left">余额 ￥ <span>150</span></span>
+		   	  <img src="images/wd3.png" height="19px" width="19px" class="photo_right"/>
+		   	  <span class="photo_right">积分 <span>20000</span></span>
+		   </div>
+		</div>
+		
+		<!--业务链接-->
+		<div class="lian">
+			<img src="images/wd5.png" />
+			绑定会员
+			<a href="" class="huiyuan1"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd12.png" />
+			我的票券
+			<a href="mycoupons.html"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd11.png" />
+			我的订单
+			<a href="myorder.html"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd7.png" />
+			我的收益
+			<a href="myprofit.html"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd6.png" />
+			送货地址
+			<a href="address.html"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd9.png" />
+			积分详情
+			<a href="mycredit.html"><img src="images/wdjt.png"/></a>
+		</div>
+		<div class="lian">
+			<img src="images/wd8.png" />
+			推广大使
+			<a href="apply.html"><img src="images/wdjt.png"/></a>
+		</div>
+		
+	
+		
+		
+		
+		<!--底部菜单栏-->
+		<div style="width: 100%;height: 57px;"></div>
+		
+		<div class="foot">
+			<span class="foot_span">
+				<a href="show.html">
+				<img src="images/foot7.png" />
+				<span>商城</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="show1.html">
+				<img src="images/foot2.png" />
+				<span>票券</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="myshop.html">
+				<img src="images/foot3.png" />
+				<span>购物车</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="usercenter.html">
+				<img src="images/foot6.png" />
+				<span>我的</span>
+				</a>
+			</span>
+		</div>
+		
+		
+		<!--会员绑定-->
+	<div class="huimo"></div>
+	<div class="huirong">
+        <!--头部-->
+        <div class="huihead" style="background:#f7471e;border-radius: 5px;">
+        	会员绑定
+        	<div class="yuandian"></div>
+        	<img src="images/guanbi.png" class="quxiao"/>
+        </div>
+		
+		<!--表单信息-->
+		<div class="huibiao">
+			<div class="xing"><input type="text" placeholder="姓名" class="input" id="name"/></div>
+			<div class="phone"><input type="number" placeholder="电话" class="input" id="phone"/><span id="huoqu" mark="1" style="font-size: 13px;">免费获取验证码</span></div>
+		    <div class="yan"><input type="number" placeholder="验证码" class="input" id="yan"/></div>	
+		<!--绑定按钮-->
+		<div class="an" id="an" style="background:#f7471e;border-radius: 5px;">	
+			<span>绑定</span>
+		</div>
+		</div>		
+	</div>
+	
+	<!--会员绑定提交时的提示信息-->
+	<div class="huimo1" style="z-index: 9999;display: none;" id=""></div>
+		<div id="dialog" style="display: none;">
+			<div class="weui-mask"></div>
+			<div class="weui-dialog">
+				<div class="weui-dialog__hd" style="height: 20px;"><strong class="weui-dialog__title"></strong></div>
+				<div class="weui-dialog__bd" id="warn_content"></div>
+				<div class="weui-dialog__ft">
+					<a href="javascript:;" id="confirm_btn" alerttype='0' class="weui-dialog__btn weui-dialog__btn_primary" style="background:#f7471e;">确定</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var height = document.documentElement.clientHeight+"px";
+		$(function(){
+			$(".input").focus(function(){
+		    this.style.outline="none";
+		    this.parentElement.style.border="1px solid #3399ff";
+			
+		});
+			$(".input").blur(function(){ 
+		    this.parentElement.style.border="1px solid #ededed";
+			
+		});
+		
+		/*会员绑定*/
+		$(".huiyuan1").click(function(){
+			$(".huimo").css("height",height);
+			$(".huimo").css("display","block");
+			$(".huirong").css("display","block");
+			return false;
+		});
+		/*取消绑定*/
+			$(".quxiao").click(function(){	
+			$(".huimo").css("display","none");
+			$(".huirong").css("display","none");
+			return false;
+		})
+		/*	$(".huimo").click(function(){
+			$(".huimo").css("display","none");
+			$(".huirong").css("display","none");
+			return false;
+		})*/
+			
+			$("#phone").blur(function(){
+    var mobilePhone =$("#phone").val();
+    //var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+   var myreg = /^1[3|4|5|7|8|9][0-9]{9}$/;
+   if(mobilePhone){
+      if(!myreg.test(mobilePhone)){
+        warn_alert("请输入有效的手机号码");
+        $("#phone").val("");
+		
+        return false;
+      }
+    }
+  });
+  /*确定按钮*/
+$("#confirm_btn").click(function(event) {
+	$("#dialog").css('display','none');
+	$(".huimo1").css("display","none");
+	if ($("#confirm_btn").attr('alerttype')==1)
+	{
+		window.location.href="userCenter.html";
+	}
+
+});	
+/*$("huimo1").click(function(event) {
+	$("#dialog").css('display','none');
+	$(".huimo1").css("display","none");
+	if ($("#confirm_btn").attr('alerttype')==1)
+	{
+		window.location.href="userCenter.html";
+	}
+
+});*/	
+/*绑定按钮*/
+$("#an").click(function(event) {
+        /* Act on the event */
+        var mobilePhone =$("#phone").val();
+		var verify_code =$("#yan").val();
+		var realname =$("#name").val();
+		if(!realname){
+		  warn_alert("请输入姓名",0);
+		 
+		  return ;
+		}
+		if(!mobilePhone){
+		  warn_alert("请输入您的手机号码",0);
+		 
+		  return ;
+		}
+		if(!verify_code){
+		  warn_alert("请输入验证码",0);
+		
+		  return ;
+		}
+		$(this).attr('disabled',"ture");
+        subOrder();
+        //alert('测试');
+		$("#an").removeAttr("disabled");
+    });
+    function subOrder(){
+        $.ajax({
+				type: "Post",
+				url: "/index.php?s=addon/WeiX/WeiX/bindCust.html",
+				async: false,
+				// url: "/home/line/zp_testtest",
+				data:{realname:$('#name').val(),verify_code:$('#yan').val(),mobile:$('#phone').val()},
+				success: function(result) {
+					$("#an").removeAttr("disabled");
+					warn_alert(result,1);
+					
+				},
+				error: function(err) {
+				warn_alert("操作失败，请确认您的网络通畅",0);
+				$("#an").removeAttr("disabled");
+				//$("#sub-btn").removeAttr("disabled");
+				}
+				 });
+    };
+    
+/*验证码获取*/
+ $("#huoqu").click(function(event) 
+	{
+		var mobilePhone =$("#phone").val();
+		var btn = $(this);
+        var count = 60;
+		if(!mobilePhone){
+		  warn_alert("请输入您的手机号码",0);
+		 
+		  return false;
+		}
+		
+		  if (btn.attr('mark')==1)
+		  {
+			btn.attr('mark',"0");
+			$.ajax({
+					type: "Get",
+					url: "/index.php?s=addon/WeiX/WeiX/sendValidCode.html",
+					async: false,
+					data:{mobile:mobilePhone},
+					success: function(result) {
+						// alert("短信验证码已发送，请查收！");
+						var arr_res=result.split("|");
+						warn_alert(arr_res[1],0);
+						if (arr_res[0]=="O")
+						{
+								 var resend = setInterval(function(){
+								count--;
+								if (count > 0){
+									btn.html(count+"秒后可重获");
+									
+									$.cookie("captcha", count, {path: '/', expires: (1/86400)*count});
+								}else {
+									clearInterval(resend);
+									btn.html("免费获取验证码").attr('mark',"1");
+								}
+							},1000)
+							btn.css('cursor','not-allowed');
+						}
+						else
+						{
+							btn.attr('mark',"1");
+						}
+						 
+					},
+					error: function(err) {
+					warn_alert("操作失败，请确认您的网络通畅",0);
+					btn.attr('mark',"1");
+					btn.removeAttr('style')
+					}
+					 });
+		  }
+		  
+		 
+		
+    });
+
+		})
+		
+function warn_alert(content,alertType)
+{
+	$("#warn_content").html(content);
+	$("#dialog").css('display','block');
+	$(".huimo1").css("display","block");
+	$(".huimo1").css("height",height);
+	$("#confirm_btn").attr('alerttype',alertType);
+}
+	</script>
+</html>

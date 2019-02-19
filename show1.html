@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>票券</title>
+		<link rel="stylesheet" href="style/shop.css" />
+		<link rel="stylesheet" href="style/show1.css" />
+		
+	</head>
+	<body>
+		
+		
+		<!--门票数据-->
+		<div class="piao" style="margin-top: 20px;">
+			<img src="images/pq1.png" width="100%" class="piao_tu"/>
+			<!--文字介绍-->
+			<div class="shuJu">
+				<!--第一行-->
+				<div class="fir_left menpiao">后黄农夫门票</div>
+				<div class="fir_right">
+					<span class="sr">人数:</span> <span class="rs jia">+</span><input type="number" class="rs rs_num" value="1" price="180" ms_price="228"/><span class="rs jian">-</span>
+				</div>
+				<div class="clear"></div>
+				<!--第二行-->
+				<div class="fir_left">
+					<span class="sec_left money"><span class="zifu">￥</span><span class="sec_je">180</span>起</span>
+					<span class="sec_left search_wen">门市价  : ￥<span class="sec_yh">228</span>元</span>
+				</div>
+				<div class="fir_right sec_right">注：节假日不可用</div>
+				<div class="clear"></div>
+				<!--第三行-->
+				<div class="fir_left">
+					<span class="chu">使用时间:</span>
+					<span class="rili" style="background: url(images/pq3.png) no-repeat;background-size: 100% 100%;"></span>
+					<!--<input class="riqi" type="date"/>-->
+				<input type="" id="date0" class="riqi" data-options="{'type':'YYYY-MM-DD','beginYear':2018,'endYear':2088,'limitTime':'today'}" >
+			
+				</div>
+				<div class="fir_right th_right">使用时请出示订单号</div>
+			</div>
+		</div>
+		
+		
+				<!--门票数据-->
+		<div class="piao">
+			<img src="images/pq1.png" width="100%" class="piao_tu"/>
+			<!--文字介绍-->
+			<div class="shuJu">
+				<!--第一行-->
+				<div class="fir_left menpiao">后2黄农夫门票</div>
+				<div class="fir_right">
+					<span class="sr">人数:</span> <span class="rs jia">+</span><input type="number" class="rs rs_num" value="1" price="180" ms_price="228"/><span class="rs jian">-</span>
+				</div>
+				<div class="clear"></div>
+				<!--第二行-->
+				<div class="fir_left">
+					<span class="sec_left money"><span class="zifu">￥</span><span class="sec_je">180</span>起</span>
+					<span class="sec_left search_wen">门市价  : ￥<span class="sec_yh">228</span>元</span>
+				</div>
+				<div class="fir_right sec_right">注：节假日不可用</div>
+				<div class="clear"></div>
+				<!--第三行-->
+				<div class="fir_left">
+					<span class="chu">使用时间:</span>
+					<span class="rili" style="background: url(images/pq3.png) no-repeat;background-size: 100% 100%;"></span>
+					<!--<input class="riqi" type="date"/>-->
+				<input type="" id="date0" class="riqi" data-options="{'type':'YYYY-MM-DD','beginYear':2018,'endYear':2088,'limitTime':'today'}" value="2018-05-03" >
+			
+				</div>
+				<div class="fir_right th_right">使用时请出示订单号</div>
+			</div>
+		</div>		<!--门票数据-->
+		<div class="piao">
+			<img src="images/pq1.png" width="100%" class="piao_tu"/>
+			<!--文字介绍-->
+			<div class="shuJu">
+				<!--第一行-->
+				<div class="fir_left menpiao">后1黄农夫门票</div>
+				<div class="fir_right">
+					<span class="sr">人数:</span> <span class="rs jia">+</span><input type="number" class="rs rs_num" value="1" price="180" ms_price="228"/><span class="rs jian">-</span>
+				</div>
+				<div class="clear"></div>
+				<!--第二行-->
+				<div class="fir_left">
+					<span class="sec_left money"><span class="zifu">￥</span><span class="sec_je">180</span>起</span>
+					<span class="sec_left search_wen">门市价  : ￥<span class="sec_yh">228</span>元</span>
+				</div>
+				<div class="fir_right sec_right">注：节假日不可用</div>
+				<div class="clear"></div>
+				<!--第三行-->
+				<div class="fir_left">
+					<span class="chu">使用时间:</span>
+					<span class="rili" style="background: url(images/pq3.png) no-repeat;background-size: 100% 100%;"></span>
+					<!--<input class="riqi" type="date"/>-->
+				<input type="" id="date0" class="riqi" data-options="{'type':'YYYY-MM-DD','beginYear':2018,'endYear':2088,'limitTime':'today'}" value="2018-05-03" >
+			
+				</div>
+				<div class="fir_right th_right">使用时请出示订单号</div>
+			</div>
+		</div>
+		
+		
+		
+
+		 <!--价格明细的窗口-->
+		 <div class="mo1"></div>
+		 <div class="price">
+		 	<div class="price_title">价格明细</div>
+		 	<div style="border-top: 1px solid #f4f4f4;width: 100%;margin-bottom: 20px;"></div>
+		 	<div id="mpsj">
+		 		
+		 	<!--选择门票数据-->
+		 	<!--<div class="price_select">
+		 		<div class="select_name">后黄农夫门票</div>
+		 		<div class="select_time">2018-05-03</div>
+		 		<div class="select_num">X<span class="zhang">62</span>张<span class="close">x</span></div>
+		 	</div>-->
+		 	</div>
+		 	<!--立减-->
+		 	<div class="price_select">
+		 		<div class="select_name lijian">立减</div>
+		 		<div class="select_time lijian_money">￥<span class="lj"></span></div>
+		 		
+		 	</div>
+		 </div>
+		 
+		
+		
+		
+		<!--结算固定定位-->
+		<div class="pay">
+			<div class="pay_left">
+				<span class="total">总价:￥<span class="total_money"></span></span>
+				<span class="youhui">已优惠￥<span class="youhui_money"></span></span>
+			</div>
+			<div class="pay_right">提交订单</div>
+			<div class="pay_center">
+				<img src="images/pq2.png" />
+			</div>
+		</div>
+		<!--底部菜单栏-->
+		<div style="width: 100%;height: 112px;"></div>
+		<div class="foot">
+			<span class="foot_span">
+				<a href="show.html">
+				<img src="images/foot7.png" />
+				<span>商城</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="show1.html">
+				<img src="images/foot.png" />
+				<span>票券</span>
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="myshop.html">
+				<img src="images/foot3.png" />
+				<span>购物车</span><!--<a class="num">11</a>-->
+				</a>
+			</span>
+			<span class="foot_span">
+				<a href="usercenter.html">
+				<img src="images/foot4.png" />
+				<span>我的</span>
+				</a>
+			</span>
+		</div>
+		
+		<!--选择使用时间错误模态窗口-->
+		<div class="mo"></div>
+		<div class="tai">
+			<div class="tai_title">错误</div>
+			<div class="tai_content">不能选择过去的时间</div>
+			<div class="tai_sure">确定</div>
+		</div>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.date.js"></script>
+		<script src="js/js_gy.js"></script>
+		<script>
+			var datas=$(".riqi");
+			var qjbl=0;
+			for(var i=0;i<datas.length;i++){
+				$(".riqi")[i].id="date"+i;
+				  /*点击日历图片时，出现时间选择器*/
+				$.date('#date'+i);
+			}
+	    	for(var i=0;i<datas.length;i++){
+	    		$(".rili")[i].index=i;
+	    		$(".riqi")[i].index=i;
+				 $(".rili")[i].onclick=function(){
+	  	          qjbl=this.index;    
+	  	$("#date"+this.index).click();
+	  }
+				 $(".riqi")[i].onclick=function(){
+	  	          qjbl=this.index;    
+	  
+	  }
+			}
+	    
+	    
+	    /*取消模态窗口*/
+	   $(".mo").click(function(){
+	   	  $('.mo').css("display","none");
+	   	  $('.tai').css("display","none");
+	   })
+	    $(".tai_sure").click(function(){
+	   	  $('.mo').css("display","none");
+	   	  $('.tai').css("display","none");
+	   })
+	   function motai(){
+	   	$('.mo').css("display","block");
+	   	  $('.tai').css("display","block");
+	   }
+	   /*使用时间设置为当天*/
+	    var d = new Date();
+	    var mon=d.getMonth()+1;
+	    var da=d.getDate();
+	    if(d.getMonth() + 1<10){
+	    	var mon="0"+(d.getMonth()+1);
+	    }
+	    if(d.getDate()<10){
+	    	var da="0"+d.getDate();
+	    }
+	    
+	   var day = String(d.getFullYear())+'-'+mon+'-'+da;
+	   $(".riqi").val(day);
+	 
+	  /*点击结算向上的箭头*/
+	 /*价格明细的默认*/
+	$(".price").slideUp();
+	var src=0;
+	 $(".pay_center img").click(function(){
+	 	if(src==0){
+	 	$(".price").slideDown();
+	 	$(".mo1").css("display","block");
+	 	this.setAttribute("src","images/pq4.png");
+	 	src=1;
+	 	}else{
+	 	$(".mo1").css("display","none");
+	 		$(".price").slideUp();
+	 	this.setAttribute("src","images/pq2.png");
+	 	src=0;
+	 	}
+	 	$(".lj").html($(".youhui_money").html());
+	 })
+	 $('.mo1').click(function(){
+	 	$(".mo1").css("display","none");
+	 	$(".price").slideUp();
+	 	$(".pay_center img").attr("src","images/pq2.png");
+	 	src=0;
+	 })
+	 /*进入页面时计算的默认总价*/
+	var sec_je = $(".sec_je");
+	var total_price=0;
+	for(var i=0;i<sec_je.length;i++){
+		total_price=accAdd(total_price,sec_je[i].innerHTML);
+	}
+	$(".total_money").html(verificationi(total_price));
+	/*已优惠价格*/
+	var sec_yh=$(".sec_yh");/*门市价*/
+	var sec_je = $(".sec_je");/*售价*/
+	var yh_zong=0;
+	for(var i=0;i<sec_je.length;i++){
+		yh_zong=accSub(accAdd(yh_zong,sec_yh[i].innerHTML),sec_je[i].innerHTML);
+	}
+	$(".youhui_money").html(verificationi(yh_zong));
+	 /*人数加减号点击事件*/
+	var renShu=1;
+	/*赋予加号下标*/
+	var jia=$(".jia");
+	var jian=$(".jian");
+	var rs_num=$(".rs_num");
+	for(var i=0;i<jia.length;i++){
+		jia[i].index=i;
+		jian[i].index=i;
+		rs_num[i].index=i;
+		
+		jia[i].onclick=function(){
+			var shuzu=0;
+			var men_name = this.parentElement.previousElementSibling.innerHTML;
+			var jia_name = $(".select_name");
+			var shijian=this.parentElement.parentElement.getElementsByClassName("riqi")[0].value;
+			var now_pr=this.parentElement.parentElement.getElementsByClassName("sec_je")[0].innerHTML;
+			var old_pr=this.parentElement.parentElement.getElementsByClassName("sec_yh")[0].innerHTML;
+			for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					shuzu=1;
+					break;
+				}
+			}
+			
+			
+		if(this.nextElementSibling.value>=1){
+			this.nextElementSibling.nextElementSibling.style.color="#f7471c";
+			this.nextElementSibling.nextElementSibling.style.borderColor="#f7471c";
+		}
+		if(this.nextElementSibling.value==999){
+			this.nextElementSibling.value=999;
+		}else{
+			this.nextElementSibling.value++;
+			if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.nextElementSibling.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.nextElementSibling.getAttribute("ms_price"),this.nextElementSibling.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+				var new_total=accAdd($(".total_money")[0].innerHTML,this.nextElementSibling.getAttribute("price"));
+			    $(".total_money").html(verificationi(new_total));
+			    var new_yh=accSub(accAdd($(".youhui_money")[0].innerHTML,this.nextElementSibling.getAttribute("ms_price")),this.nextElementSibling.getAttribute("price"));
+			    $(".youhui_money").html(verificationi(new_yh));
+			}
+		   for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+		    
+		
+		}
+		
+		}
+	}
+	
+	$(".jian").click(function(){
+		var shuzu=0;
+			var men_name = this.parentElement.previousElementSibling.innerHTML;
+			var jia_name = $(".select_name");
+			var shijian=this.parentElement.parentElement.getElementsByClassName("riqi")[0].value;
+			var now_pr=this.parentElement.parentElement.getElementsByClassName("sec_je")[0].innerHTML;
+			var old_pr=this.parentElement.parentElement.getElementsByClassName("sec_yh")[0].innerHTML;
+			for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					shuzu=1;
+					break;
+				}
+			}
+			
+		if(this.previousElementSibling.value==1){
+			this.previousElementSibling.value=1;
+		}else{
+			this.previousElementSibling.value--;
+			if(this.previousElementSibling.value==1){
+				this.style.color="#DADADA";
+			    this.style.borderColor="#DADADA";
+			};
+			if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.previousElementSibling.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.previousElementSibling.getAttribute("ms_price"),this.previousElementSibling.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+			var new_total=accSub($(".total_money")[0].innerHTML,this.previousElementSibling.getAttribute("price"));
+			$(".total_money").html(verificationi(new_total));
+			var new_yh=accAdd(accSub($(".youhui_money")[0].innerHTML,this.previousElementSibling.getAttribute("ms_price")),this.previousElementSibling.getAttribute("price"));
+			$(".youhui_money").html(verificationi(new_yh));
+			}
+			for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+		
+		}
+		
+	})
+	var begin_num=0;
+	$(".rs_num").focus(function(){
+		begin_num=this.value;
+	})
+	$(".rs_num").blur(function(){
+		var shuzu=0;
+			var men_name = this.parentElement.previousElementSibling.innerHTML;
+			var jia_name = $(".select_name");
+			var shijian=this.parentElement.parentElement.getElementsByClassName("riqi")[0].value;
+			var now_pr=this.parentElement.parentElement.getElementsByClassName("sec_je")[0].innerHTML;
+			var old_pr=this.parentElement.parentElement.getElementsByClassName("sec_yh")[0].innerHTML;
+			for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					shuzu=1;
+					break;
+				}
+			}
+		if(this.value>999){
+			this.value=999;
+			this.nextElementSibling.style.color="#f7471c";
+			this.nextElementSibling.style.borderColor="#f7471c";
+				if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.getAttribute("ms_price"),this.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+			var new_num=accSub(this.value,begin_num);
+			var new_total=accAdd($(".total_money")[0].innerHTML,accMul(new_num,this.getAttribute("price")));
+			$(".total_money").html(verificationi(new_total));
+			var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(new_num,accSub(this.getAttribute("ms_price"),this.getAttribute("price"))));
+			$(".youhui_money").html(verificationi(new_yh));
+			}
+			
+		   for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+		   return false;
+		};
+		if(this.value<1){
+			this.value=1;
+			if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.getAttribute("ms_price"),this.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+			var new_num=accSub(this.value,begin_num);
+			var new_total=accAdd($(".total_money")[0].innerHTML,accMul(new_num,this.getAttribute("price")));
+			$(".total_money").html(verificationi(new_total));
+			var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(new_num,accSub(this.getAttribute("ms_price"),this.getAttribute("price"))));
+			$(".youhui_money").html(verificationi(new_yh));
+			}
+			
+		   for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+			return false;
+		}
+		if(this.value==1){
+			this.nextElementSibling.style.color="#DADADA";
+			this.nextElementSibling.style.borderColor="#DADADA";
+		if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.getAttribute("ms_price"),this.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+			var new_num=accSub(this.value,begin_num);
+			var new_total=accAdd($(".total_money")[0].innerHTML,accMul(new_num,this.getAttribute("price")));
+			$(".total_money").html(verificationi(new_total));
+			var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(new_num,accSub(this.getAttribute("ms_price"),this.getAttribute("price"))));
+			$(".youhui_money").html(verificationi(new_yh));
+			}
+			
+		   for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+			return false;
+		}
+		if(this.value>1){
+			this.nextElementSibling.style.color="#f7471c";
+			this.nextElementSibling.style.borderColor="#f7471c";
+			if(shuzu==0){
+				var div='<div class="price_select">'+
+		 		'<div class="select_name">'+men_name+'</div>'+
+		 		'<div class="select_time">'+shijian+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+now_pr+'" old_price="'+old_pr+'">x</span></div>'+
+		 	'</div>';
+		 	document.getElementById("mpsj").innerHTML+=div;
+		 	var jia_name = $(".select_name");
+		 	var new_total=accAdd($(".total_money")[0].innerHTML,accMul(this.getAttribute("price"),$(".rs_num")[this.index].value));
+			$(".total_money").html(verificationi(new_total));
+		 	var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(accSub(this.getAttribute("ms_price"),this.getAttribute("price")),$(".rs_num")[this.index].value));
+			$(".youhui_money").html(verificationi(new_yh));
+		 	 close();
+			}else{
+			var new_num=accSub(this.value,begin_num);
+			var new_total=accAdd($(".total_money")[0].innerHTML,accMul(new_num,this.getAttribute("price")));
+			$(".total_money").html(verificationi(new_total));
+			var new_yh=accAdd($(".youhui_money")[0].innerHTML,accMul(new_num,accSub(this.getAttribute("ms_price"),this.getAttribute("price"))));
+			$(".youhui_money").html(verificationi(new_yh));
+			}
+			
+		   for(var i=0;i<jia_name.length;i++){
+				if(men_name==jia_name[i].innerHTML){
+					$(".zhang")[i].innerHTML=$(".rs_num")[this.index].value;
+					break;
+				}
+			}
+			return false;
+		}
+	})
+	
+	/*价格明细的初始状态*/
+	var piao = $(".piao");
+	var div="";
+	for(var i=0;i<piao.length;i++){
+		div+='<div class="price_select">'+
+		 		'<div class="select_name">'+piao[i].getElementsByClassName("fir_left")[0].innerHTML+'</div>'+
+		 		'<div class="select_time">'+piao[i].getElementsByClassName("riqi")[0].value+'</div>'+
+		 		'<div class="select_num">X<span class="zhang">1</span>张<span class="close" now_price="'+piao[i].getElementsByClassName("sec_je")[0].innerHTML+'" OLD_price="'+piao[i].getElementsByClassName("sec_yh")[0].innerHTML+'">x</span></div>'+
+		 	'</div>';
+	}
+	document.getElementById("mpsj").innerHTML=div;
+	function close(){
+	$(".close").click(function(){
+		var now_price=this.getAttribute("now_price");
+		var old_price=this.getAttribute("old_price");
+		var num = this.parentElement.getElementsByClassName("zhang")[0].innerHTML;
+		var total=accSub($(".total_money")[0].innerHTML,accMul(now_price,num));
+		var yh = accSub($(".youhui_money")[0].innerHTML,accMul(accSub(old_price,now_price),num));
+		$(".total_money").html(verificationi(total));
+		$(".youhui_money").html(verificationi(yh));
+		$(".lj").html(verificationi(yh));
+		this.parentElement.parentElement.remove();
+	})
+	}
+	close();
+		</script>
+	</body>
+</html>
