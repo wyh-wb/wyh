@@ -1,0 +1,258 @@
+* {
+	font-size: 16px;
+}
+
+.photo {
+	width: 100%;
+	height: 150px;
+	background: #F7471E;
+}
+
+.tou {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin: auto;
+	position: relative;
+	top: 25px;
+}
+
+.name {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 18px;
+	color: #FFFFFF;
+	position: relative;
+	top: 25px;
+}
+
+.yu {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	top: 25px;
+	text-align: center;
+}
+
+.yu img {
+	position: relative;
+	top: 6px;
+}
+
+.yu span {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+
+.photo_left {
+	position: relative;
+	left: -12px;
+}
+
+.photo_right {
+	position: relative;
+	left: 12px;
+}
+
+.lian {
+	border-top: 1px solid #EBEBEB;
+	line-height: 60px;
+	font-size: 16px;
+	padding: 0 5% 0 5%;
+}
+
+.lian img {
+	position: relative;
+	top: 5px;
+	height: 24px;
+}
+
+.lian a {
+	position: relative;
+	float: right;
+
+}
+.lian a img{
+	height: 20px;
+}
+
+
+/*会员绑定*/
+
+.huimo {
+	width: 100%;
+	height: 1200px;
+	position: absolute;
+	top: 0px;
+	z-index: 999;
+	background: #716c6b;
+	opacity: 0.5;
+	display: none;
+}
+
+.huirong {
+	width: 86%;
+	position: fixed;
+	top: 90px;
+	left: 7%;
+	z-index: 1000;
+	display: none;
+}
+
+.huihead {
+	width: 100%;
+	height: 75px;
+	line-height: 75px;
+	text-align: center;
+	color: #FFFFFF;
+	position: relative;
+}
+
+.yuandian {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #706d6d;
+	position: absolute;
+	right: 30px;
+	top: 10px;
+}
+
+.quxiao {
+	position: absolute;
+	top: -45px;
+	right: 22px;
+}
+
+.huibiao {
+	background: #FFFFFF;
+	width: 100%;
+	height: 270px;
+	position: relative;
+	top: -8px;
+	border-radius: 5px;
+}
+
+.xing {
+	width: 80%;
+	height: 40px;
+	margin: auto;
+	border: 1px solid #ededed;
+	position: relative;
+	top: 20px;
+	border-radius: 5px;
+}
+
+.xing input {
+	width: 90%;
+	height: 100%;
+	border: 0px;
+	margin-left: 10%;
+}
+
+.phone {
+	width: 80%;
+	height: 40px;
+	margin: auto;
+	border: 1px solid #ededed;
+	position: relative;
+	top: 40px;
+	border-radius: 5px;
+}
+
+.phone input {
+	width: 45%;
+	height: 100%;
+	border: 0px;
+	margin-left: 10%;
+}
+
+.phone span {
+	color: #f7471e;
+	width: 40%;
+	height: 100%;
+	border: 0px;
+}
+
+.yan {
+	width: 80%;
+	height: 40px;
+	margin: auto;
+	border: 1px solid #ededed;
+	position: relative;
+	top: 60px;
+	border-radius: 5px;
+}
+
+.yan input {
+	width: 90%;
+	height: 100%;
+	border: 0px;
+	margin-left: 10%;
+}
+
+.an {
+	width: 70%;
+	height: 40px;
+	position: absolute;
+	bottom: 30px;
+	color: #FFFFFF;
+	left: 15%;
+	text-align: center;
+	line-height: 40px;
+}
+
+
+/*会员绑定提交时的提示信息*/
+
+.huimo1 {
+	width: 100%;
+	height: 1200px;
+	position: absolute;
+	top: 0px;
+	z-index: 999;
+	background: #716c6b;
+	opacity: 0.5;
+	display: none;
+}
+
+#dialog {
+	height: 110px;
+	width: 76%;
+	margin: auto;
+	background: #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 12%;
+	z-index: 99999;
+	border-radius: 5px;
+}
+
+#warn_content {
+	width: 100%;
+	text-align: center;
+}
+
+.weui-dialog__ft {
+	width: 100%;
+	height: 50px;
+}
+
+#confirm_btn {
+	display: inline-block;
+	width: 80%;
+	height: 30px;
+	margin-left: 10%;
+	margin-top: 15px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 30px;
+}
+
+a {
+	text-decoration: none;
+}

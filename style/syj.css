@@ -1,0 +1,283 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*头部背景*/
+.head{
+	width: 96%;
+	margin: auto;
+	margin-top: 10px;
+	height: 150px;
+	padding-top: 30px;
+	position: relative;
+}
+.hwen,.hjin{
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+    font-size: 18px;
+}
+.hdi{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #E4E4E4;
+	padding-top: 15px;
+}
+.dil{
+	float: left;
+	width: 33%;
+	height:70%;
+	border-right: 1px solid #FFFFFF;
+}
+.diz{
+	float: left;
+	width: 33%;
+	height:70%;
+	border-right: 1px solid #FFFFFF;
+}
+.dir{
+	float:left;
+	width: 33%;
+	height:100%;
+
+}
+.dizi{
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: center;
+	word-wrap: break-word;
+}
+/*<!--返还率 返还周期 每周返还-->*/
+.zhong{
+	width: 96%;
+	margin: auto;
+	height: 90px;
+	border-bottom: 1px solid #E4E4E4;
+	border-top: 1px solid #E4E4E4;
+	color: grey;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.zhongl{
+	height: 100%;
+	width: 33%;
+	float: left;
+	text-align: center;
+}
+/*循环数据*/
+.xun{
+	width: 96%;
+	height: 40px;
+	line-height: 40px;
+	margin: auto;
+	color: grey;
+	border-bottom: 1px solid #E4E4E4;
+	border-top: 1px solid #E4E4E4;
+}
+.xunl{
+	width: 33%;
+	height: 100%;
+	float: left;
+	text-align: center;
+}
+.xunr{
+	width: 34%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	
+}
+/*兑换按钮*/
+.pingjia{
+	width:80%;
+	height: 80px;
+    color: #FFFFFF;
+    margin-left: 10%;
+    margin-top: 20px;
+	text-align: center;
+	line-height: 50px;
+	position: fixed;
+	z-index: 88;
+	bottom: 50px;
+	
+}
+/*底部菜单*/
+.foot{
+	width: 100%;
+	height: 55px;
+	position: fixed;
+	bottom: 0px;
+	border-top:1px solid #EBEBEB;
+	background: #FFFFFF;
+}
+.foot_span{
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+	text-align: center;
+	float: left;
+}
+.foot_span img{
+	width: 25px;
+	height: 25px;
+	position: relative;
+	top: 4px;
+}
+.foot_span span{
+	font-size: 14px;
+	display: block;
+	position: relative;
+	top: -2px;
+	color: #000000;
+}
+.foot_span a{
+text-decoration: none;
+}
+.num{
+	width: 18px;
+	height: 18px;
+	font-size: 12px;
+	position: fixed;
+	bottom: 35px;
+	left: 65%;
+	border-radius: 50%;
+	background: #f6471d;
+	color: #FFFFFF;
+	line-height: 18px;
+	text-align: center;
+}
+/*模态窗口*/
+.mo{
+	width: 100%;
+	height: 1000px;
+	position: fixed;
+	top: 0px;
+	background: #000000;
+	opacity: 0.34;
+	z-index: 100;
+}
+.dui{
+	width: 70%;
+	height: 200px;
+	border:1px solid #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 15%;
+	background:#FFFFFF;
+	margin: auto;
+	z-index: 120;
+	border-radius: 5px;
+	z-index:101
+}
+.huan{
+	height: 40px;
+	line-height: 40px;
+	width: 90%;
+	margin: auto;
+	margin-top: 15px;
+}
+.huan input{
+	width: 60%;
+	height: 30px;
+	
+}
+.xian{
+	width: 90%;
+	margin: auto;
+	margin-top: 15px;
+	text-align: center;
+}
+.an{
+	width: 90%;
+    margin:auto;
+}
+.que{
+	text-align: center;
+	width: 40%;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	background: #E68A7D;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+.xiao{
+	text-align: center;
+	width: 40%;
+	float: right;
+	height: 40px;
+	line-height: 40px;
+	background: #E68A7D;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+/*返回结果的提示信息*/
+.mo1{
+	width: 100%;
+	height: 1000px;
+	position: fixed;
+	top: 0px;
+	background: #000000;
+	opacity: 0.34;
+	z-index: 110;
+}
+#dialog{
+	
+	width: 76%;
+	margin: auto;
+   background: #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 12%;
+	z-index: 99999;
+
+}
+#dialog1{
+	height: 120px;
+	width: 76%;
+	margin: auto;
+background: #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 12%;
+	z-index: 99999;
+
+}
+#warn_content{
+width:100%;
+text-align: center;
+}
+#warn_content1{
+width:100%;
+text-align: center;
+}
+#btn_yes,#btn_no{
+	display: inline-block;
+	width: 80%;
+	height: 40px;
+	margin-left: 10%;
+	margin-top: 25px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 35px;
+}
+.weui-dialog__ft{
+width:100%;
+height: 50px;
+
+}
+#confirm_btn{
+	display: inline-block;
+	width: 80%;
+	height: 40px;
+	margin-left: 10%;
+	margin-top: 25px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 35px;
+}
+a{
+	text-decoration: none;
+}

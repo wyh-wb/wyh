@@ -1,0 +1,181 @@
+/*搜索想要的美食*/
+.search{
+	width: 90%;
+	height: 40px;
+	margin:auto;
+	margin-top: 20px;
+	position: relative;
+}
+.search_input{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: 0px;
+	border-radius: 8px;
+	background: #EBEBEB;
+	text-align: center;
+}
+.search_span{
+	line-height: 40px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	
+}
+
+.search_img{
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 1px;
+}
+.search_wen{
+	font-size: 12px;
+     position: relative;
+	top: -4px;
+	left: 10px;
+}
+/*轮播图*/
+.lun{
+	width: 100%;
+	margin-top: 10px;
+	position: relative;
+}
+.lun ul{
+	list-style: none;
+	position: absolute;
+	bottom: 15px;
+	left: 46%;
+}
+.lun ul li{
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background: #d9d7d7;
+	float: left;
+	margin-left: 3px;
+}
+.xrhl{
+	width: 100%;
+	height: 80px;
+    margin-top:30px;
+}
+.xrhl_img{
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;	
+}
+.xrhl_img img{
+    height: 40px;	
+}
+.xrhl_img span{
+	font-size: 14px !important;
+	display: block;
+	color: #868283;
+}
+/*两个分类项目*/
+.fen_two{
+	width: 90%;
+	margin: auto;
+	height: 100px;
+	
+}
+.fen_span{
+	display: inline-block;
+	width: 48%;
+	height: 80px;
+	float: left;
+	text-align: center;
+	font-size: 18px;
+	color: #FFFFFF;
+	position: relative;
+	display: block;
+	border-radius: 8px;
+}
+.fen_span:nth-child(2){
+	float: right;
+}
+.fen_div{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	text-align: center;
+	line-height: 80px;
+	font-size: 16px;
+}
+/*分割线*/
+.fgx{
+	width:100%;
+	border-top: 1px solid #EEEEEE;
+}
+/*上下分类项目*/
+.sx{
+	width: 90%;
+	margin: auto;
+}
+.title{
+	line-height: 40px;
+	
+}
+.title img{
+	float: left;
+	height: 20px;
+	width:20px;
+	position: relative;
+	top: 10px;
+}
+.title span{
+	float: left;
+	font-size: 17px;
+	font-weight: bold;
+}
+.shangPin{
+	width: 100%;
+	
+}
+.shangPin img{
+	border-radius: 8px;
+}
+.miaoShu{
+	float: left;
+	margin-top: 10px;
+	width: 88%;
+	
+}
+.jia{
+	float: right;
+	margin-top: 10px;
+	position: relative;
+}
+.shang_left{
+	font-size: 16px;
+	float: left;
+}
+.shang_right{
+	font-size: 12px;
+	color: #ABABAB;
+	float: right;
+	text-decoration: line-through;
+	
+}
+.xia_left{
+	font-size: 12px;
+	color: #ABABAB;
+	float: left;
+}
+.xia_right{
+	font-size: 12px;
+	color: #f76240;
+	float: right;
+}
+.sp_fg{
+	width: 110%;
+	margin-left: -5%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-top: 1px solid #EEEEEE;
+	float: left;
+}

@@ -1,0 +1,96 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+/*未过期的*/
+.you{
+	width: 90%;
+	margin: auto;
+	height: 90px;
+	margin-top: 15px;
+	position: relative;
+	padding: 8px;
+	box-sizing: border-box;
+}
+/*已过期的优惠券*/
+.you1{
+	width: 90%;
+	margin: auto;
+	height: 90px;
+	margin-top: 15px;
+	position: relative;
+}
+.table{
+	width: 100%;
+	height: 100%;
+}
+.left{
+	width: 62%;
+	height: 100%;
+	position: relative;
+   color: #FFFFFF;
+   padding: 0 8px 0 0;
+   box-sizing: border-box;
+   
+}
+.left p{
+	font-size: 12px;
+}
+.left .p1{
+	position: relative;
+	top: -3px;
+}
+.left .p2 span{
+	font-size: 12px;
+}
+.left .p2{
+	position: relative;
+	top: 3px;
+}
+.left .p2 .money{
+	font-size: 22px;
+}
+.right{
+	width: 38%;
+	height: 100%;
+	position: relative;
+   padding: 0 0 0 8px;
+   box-sizing: border-box;
+   text-align: center;
+   color: #A3A3A3;
+}
+.right p{
+	font-size: 12px;
+}
+.right p:nth-child(1){
+	position: relative;
+	top: -3px;
+}
+.right p:nth-child(3){
+	position: relative;
+	top: 3px;
+}
+.anniu span{
+	display: inline-block;
+	width: 80%;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #F7471E;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+.anniu1 span{
+	display: inline-block;
+	width: 80%;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #999999;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+a{
+	text-decoration: none;
+}

@@ -1,0 +1,63 @@
+.photo{
+	width:100%;
+	height: 160px;
+	color: #FFFFFF;
+	padding-top: 35px;
+	position: relative;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+.photo_fir{
+	font-size: 16px;
+	padding-left: 5%;
+}
+.photo_fir span{
+	font-size: 22px;
+}
+.photo_sec{
+	font-size: 16px;
+	padding-left: 5%;
+}
+.photo_th{
+	position: absolute;
+	bottom: 0px;
+	background: #000000;
+	opacity: 0.3;
+	width: 100%;
+	height: 40px;
+}
+.th_content{
+	height: 100%;
+	width: 33%;
+	float: left;
+	font-size: 16px;
+	text-align: center;
+	border-right: 1px solid #FFFFFF;
+	height: 30px;
+	margin-top: 5px;
+	line-height: 30px;
+}
+.lei{
+	position: absolute;
+	z-index: 22;
+	bottom: 0;
+	height: 40px;
+	line-height: 40px;
+    border-right:0;
+}
+/*下部分*/
+.xia{
+	width: 100%;
+	height:40px;
+    border-top: 1px solid #EBEBEB;
+    color: #878787;
+    line-height: 40px;
+}
+.xia_content{
+	height: 100%;
+	width: 33%;
+	float: left;
+	font-size: 12px;
+	text-align: center;
+	height: 40px;	
+}

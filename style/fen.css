@@ -1,0 +1,283 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+.body{
+	width: 100%;
+	height: 530px;
+	margin: auto;
+}
+.head{
+	height: 180px;
+	width: 100%;
+	position: relative;
+	top: 10px;
+}
+.first{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+}
+.second{
+	width: 90%;
+	margin: auto;
+	height: 40px;
+	margin-top: -22px;
+}
+.line{
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+.tiao{
+	width: 40%;
+	height: 1px;
+	margin: auto;
+	margin-top: 19px;
+	border-top: 1px solid #F3c5be;
+	border-bottom: 1px solid #F3c5be;
+	position: relative;
+	left: 15px;
+}
+.tiao1{
+	width: 40%;
+	height: 1px;
+	margin: auto;
+	margin-top: 19px;
+	border-top: 1px solid #F3c5be;
+	border-bottom: 1px solid #F3c5be;
+	position: relative;
+	left: -15px;
+}
+.date{
+	width: 60%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-size: 13px;
+}
+.three{
+	width: 85%;
+	height:100px;
+	margin: auto;
+	margin-top: 20px;
+}
+.three table{
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF;
+}
+.three table tr{
+	height: 100%;
+	width: 100%;
+}
+.three table td{
+	height: 100%;
+	width: 50%;
+}
+.td1{
+	text-align: left;
+}
+.money{
+	font-size: 28px;
+	line-height: 40px;
+}
+.yuan{
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.td2{
+	text-align: right;
+}
+.heng1{
+    width: 25px;
+    height: 2px;
+    background: #F3c5be;
+    float: right;
+    position: relative;
+    top: 9px;
+}
+.heng{
+	position: relative;
+	top: -5px;
+	float: right;
+	color: #F3c5be;
+}
+.xia{
+	width: 90%;
+	height: 250px;
+	margin: auto;
+	position: relative;
+	top: 20px;
+}
+.wen{
+	width: 100%;
+	text-align: center;
+	color: #F7471E;
+	font-size: 15px;
+	margin-top: 70px;
+}
+.an{
+	width: 76%;
+	height: 80px;
+	color: #FFFFFF;
+	margin: auto;
+	text-align: center;
+	line-height: 70px;
+	position: absolute;
+	bottom: 90px;
+		left: 12%;
+}
+.cha{
+	width: 76%;
+	height: 80px;
+	color: #FFFFFF;
+	margin: auto;
+	text-align: center;
+	line-height: 70px;
+	position: absolute;
+	bottom: 10px;
+	left: 12%;
+}
+/*分享的弹框*/
+.huimo{
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	z-index: 999;
+	background: #545151;
+	opacity: 0.85;
+	display: none;
+}
+.img{
+	position:absolute;
+	top: 24px;
+	z-index: 9999;
+	right: 25px;
+	display: none;
+}
+.zhi{
+	position:absolute;
+	top: -15px;
+	right: 50px;
+	z-index: 9999;
+	display: none;
+}
+/*分享之后的提示信息*/
+.huimo1{
+	width: 100%;
+	height: 1200px;
+	position: absolute;
+	top: 0px;
+	z-index: 999;
+	background: #716c6b;
+	opacity: 0.5;
+}
+#dialog{
+	
+	width: 76%;
+	margin: auto;
+   background: #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 12%;
+	z-index: 99999;
+
+}
+#dialog1{
+	height: 120px;
+	width: 76%;
+	margin: auto;
+background: #FFFFFF;
+	position: fixed;
+	top: 200px;
+	left: 12%;
+	z-index: 99999;
+
+}
+#warn_content{
+width:100%;
+text-align: center;
+}
+#warn_content1{
+width:100%;
+text-align: center;
+}
+#btn_yes,#btn_no{
+	display: inline-block;
+	width: 80%;
+	height: 40px;
+	margin-left: 10%;
+	margin-top: 25px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 35px;
+}
+.weui-dialog__ft{
+width:100%;
+height: 50px;
+
+}
+#confirm_btn{
+	display: inline-block;
+	width: 80%;
+	height: 40px;
+	margin-left: 10%;
+	margin-top: 25px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 35px;
+}
+a{
+	text-decoration: none;
+}
+.foot{
+	width: 100%;
+	height: 55px;
+	position: fixed;
+	bottom: 0px;
+	border-top:1px solid #EBEBEB;
+	background: #FFFFFF;
+}
+.foot_span{
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+	text-align: center;
+	float: left;
+}
+.foot_span img{
+	width: 25px;
+	height: 25px;
+	position: relative;
+	top: 4px;
+}
+.foot_span span{
+	font-size: 14px;
+	display: block;
+	position: relative;
+	top: -2px;
+	color: #000000;
+}
+.foot_span a{
+text-decoration: none;
+}
+.num{
+	width: 18px;
+	height: 18px;
+	font-size: 12px;
+	position: fixed;
+	bottom: 35px;
+	left: 65%;
+	border-radius: 50%;
+	background: #f6471d;
+	color: #FFFFFF;
+	line-height: 18px;
+	text-align: center;
+}
