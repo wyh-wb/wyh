@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    		font-size: 15px;
+    	}
+    	.table{
+    		width: 300px;
+    		margin: auto;
+    		margin-top: 30px;
+    		text-align: center;
+    		height: 200px;
+    	}
+    	.table td{
+    		border: 1px solid red;
+    		border-right: 0;
+    		width: 100px;
+    		color: #FFFFFF;
+    	}
+    	.table tr td:last-child{
+    		border-right:1px solid red;
+    	}
+    	.table tr:last-child td{
+    		border-top: 0;
+    	}
+    	.table td span{
+    		display: inline-block;
+    		height: 100%;
+    		width: 100%;
+    		background: deepskyblue;
+    		color: #ffffff;
+    		text-align: center;
+    		line-height: 100px;
+    		font-size: 20px;
+    	}
+    	ul{
+    		list-style: none;
+    	}
+    	ul li{
+    		display: inline-block;
+    		width: 100px;
+    		height: 100px;
+    		text-align: center;
+    		line-height: 100px;
+    		background: red;
+    		margin-top: 10px;
+    		color: #FFFFFF;
+    	}
+    	ul div{
+    		display: inline-block;
+    		width: 100px;
+    		height: 100px;
+    		text-align: center;
+    		line-height: 100px;
+    		background: red;
+    		margin-top: 10px;
+    		color: #FFFFFF;
+    	}
+    	.success{
+    		background: green;
+    		width: 100%;
+    		height: 100%;
+    		text-align: center;
+    		line-height: 100px;
+    	}
+    	.fail{
+    		width: 100%;
+    		height: 100%;
+    		background: red;
+    		text-align: center;
+    		line-height: 100px;
+    	}
+    </style>
+</head>
+<body>
+	<table class="table" cellpadding="0" cellspacing="0">
+		<tr height="100px">
+			<td con="A" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td con="B" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td con="C" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			
+		</tr>
+		<tr height="100px">
+			<td con="D" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td con="E" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			<td con="F" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+			
+		</tr>
+	</table>
+	<ul>
+		<li draggable="true" ondragstart="drag(this)">A</li>
+		<li draggable="true" ondragstart="drag(this)">B</li>
+		<li draggable="true" ondragstart="drag(this)">C</li>
+		<li draggable="true" ondragstart="drag(this)">D</li>
+		<li draggable="true" ondragstart="drag(this)">E</li>
+		<div draggable="true" ondragstart="drag(this)">F</div>
+	</ul>
+</body>
+<script type="text/javascript">
+	var result=0;
+		function allowDrop(ev)
+		{
+		ev.preventDefault();
+		}
+		var mb;
+		function drag(ev)
+		{
+		 mb=ev;
+		}
+		
+		function drop(ev)
+		{
+		ev.preventDefault();
+		var data=mb.innerHTML;
+		if(data==ev.currentTarget.getAttribute("con")){
+			 if(ev.currentTarget.innerHTML==""){
+            	result++;
+            }else if(ev.currentTarget.getElementsByTagName("div")[0].getAttribute("class")=="fail"){
+            	result++;
+            }
+			ev.currentTarget.innerHTML="<div class='success' draggable='true' ondragstart='drag(this)'>"+data+"</div>";
+           
+		}else{
+			if(ev.currentTarget.getElementsByTagName("div")[0]!=undefined){
+			if(ev.currentTarget.getElementsByTagName("div")[0].getAttribute("class")=="success"){
+            	result--;
+            }
+			}
+			ev.currentTarget.innerHTML="<div class='fail' draggable='true' ondragstart='drag(this)'>"+data+"</div>";
+			 
+			
+		}
+		if(result==6){
+			alert("恭喜通关");
+		}
+		
+		}
+</script>
+</html>
