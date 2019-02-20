@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    		font-size: 15px;
+    	}
+    	.table{
+    		width: 300px;
+    		margin: auto;
+    		margin-top: 30px;
+    		text-align: center;
+    		height: 400px;
+    	}
+    	.table td{
+    		border: 1px solid red;
+    		border-right: 0;
+    		width: 100px;
+    	}
+    	.table tr td:last-child{
+    		border-right:1px solid red;
+    	}
+    	.table tr:last-child td{
+    		border-top: 0;
+    	}
+    	.table td span{
+    		display: inline-block;
+    		height: 100%;
+    		width: 100%;
+    		background: deepskyblue;
+    		color: #ffffff;
+    		text-align: center;
+    		line-height: 200px;
+    		font-size: 20px;
+    	}
+    </style>
+</head>
+<body>
+	<table class="table" cellpadding="0" cellspacing="0">
+		<tr height="200px">
+			<td con="A"></td>
+			<td con="B"><span ontouchstart="a()" ontouchmove="b(this)">D</span></td>
+			<td con="C"><span ontouchstart="a()" ontouchmove="b(this)">A</span></td>
+			
+		</tr>
+		<tr height="200px">
+			<td con="D"><span ontouchstart="a()" ontouchmove="b(this)">C</span></td>
+			<td con="E"></td>
+			<td><span ontouchstart="a()" ontouchmove="b(this)">B</span></td>
+			
+		</tr>
+	</table>
+</body>
+<script>
+	var sj=[
+	   '<span ontouchstart="a()" ontouchmove="b(this)">E</span>',
+	   '<span ontouchstart="a()" ontouchmove="b(this)">A</span>',
+	   '<span ontouchstart="a()" ontouchmove="b(this)">B</span>',
+	   '<span ontouchstart="a()" ontouchmove="b(this)">C</span>',
+	   '<span ontouchstart="a()" ontouchmove="b(this)">D</span>',
+	   ''
+	];
+function randomsort(a, b) {
+    return Math.random()>.6 ? -1 : 1;
+    //用Math.random()函数生成0~1之间的随机数与0.6比较，返回-1或1
+}
+
+sj.sort(randomsort);
+var tds=document.getElementsByTagName("td");
+for(var c=0;c<tds.length;c++){
+	tds[c].innerHTML=sj[c];
+}
+	var sp=document.getElementsByTagName("span");
+	var len=document.getElementsByTagName("tr").length-1;
+	var hlen=document.getElementsByTagName("tr")[0].getElementsByTagName("td").length-1;
+	var endX=0;
+	var startX=0;
+	var endY=0;
+	var startY=0;
+	var result=0;/*用于判断最后的结果*/
+	for(var i=0;i<sp.length;i++){
+		if(sp[i].innerHTML==sp[i].parentElement.getAttribute("con")){
+			result++;
+		}
+	}
+	if(result==sp.length){
+		location.reload();
+	}
+	function a(){
+		startX=event.changedTouches[0].pageX;
+		startY=event.changedTouches[0].pageY;
+	}
+	function b(obj){
+		endX=event.changedTouches[0].pageX;
+		 endY=event.changedTouches[0].pageY;
+		 if(obj.parentElement!=null){
+		 var lie=obj.parentElement.cellIndex;
+		  var hang=obj.parentElement.parentElement.rowIndex;
+		  var juX=accSub(endX,startX);
+		  var juY=accSub(endY,startY);
+		/*判断横移还是竖动*/
+		/*竖动*/
+		if(Math.abs(juY)>=Math.abs(juX)){
+			/*判断上下左右*/
+		/*上*/
+		if(juY<-10){
+			if(hang!=0){
+			  if(document.getElementsByTagName("tr")[hang-1].getElementsByTagName("td")[lie].innerHTML==""){
+			  	var content=obj.parentElement.innerHTML;
+			  	obj.parentElement.innerHTML="";
+			  	sp=document.getElementsByTagName("span");
+			  	document.getElementsByTagName("tr")[hang-1].getElementsByTagName("td")[lie].innerHTML=content;
+			    var con=document.getElementsByTagName("tr")[hang-1].getElementsByTagName("td")[lie].getAttribute("con");
+			  var Ycon=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie].getAttribute("con");
+			  
+			  }
+			}
+		}
+		/*下*/
+		if(juY>10){
+			if(hang!=len){
+			  if(document.getElementsByTagName("tr")[hang+1].getElementsByTagName("td")[lie].innerHTML==""){
+			  	var content=obj.parentElement.innerHTML;
+			  	obj.parentElement.innerHTML="";
+			  	sp=document.getElementsByTagName("span");
+			  	document.getElementsByTagName("tr")[hang+1].getElementsByTagName("td")[lie].innerHTML=content;
+			    var con=document.getElementsByTagName("tr")[hang+1].getElementsByTagName("td")[lie].getAttribute("con");
+			  var Ycon=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie].getAttribute("con");
+			  
+			  }
+			}
+		}
+	}else{
+		/*横 动*/
+		/*左*/
+		if(juX<-10){
+			if(lie!=0){
+				 if(document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie-1].innerHTML==""){
+			  	var content=obj.parentElement.innerHTML;
+			  	obj.parentElement.innerHTML="";
+			  	sp=document.getElementsByTagName("span");
+			  	document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie-1].innerHTML=content;
+			  var con=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie-1].getAttribute("con");
+			  var Ycon=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie].getAttribute("con");
+				
+				 }
+			}
+		}
+		/*右*/
+		if(juX>10){
+			if(lie!=hlen){
+				 if(document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie+1].innerHTML==""){
+			  	var content=obj.parentElement.innerHTML;
+			  	obj.parentElement.innerHTML="";
+			  	sp=document.getElementsByTagName("span");
+			  	document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie+1].innerHTML=content;
+			  var con=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie+1].getAttribute("con");
+			  var Ycon=document.getElementsByTagName("tr")[hang].getElementsByTagName("td")[lie].getAttribute("con");
+			  
+				 }
+			}
+		}
+	}
+	    if(obj.innerHTML==con){
+			result++;
+			if(result==sp.length){
+				alert("恭喜通关");
+			}
+		}else if(obj.innerHTML==Ycon){
+			result--;
+		}
+	    
+		}
+		}
+
+	/*加*/
+function accAdd(arg1,arg2){
+	var r1,r2,m;
+	try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+	try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+	m=Math.pow(10,Math.max(r1,r2))
+	return (Math.round(arg1*m)+Math.round(arg2*m))/m
+	}
+/*减*/
+function accSub(arg1,arg2){
+	return accAdd(arg1,-arg2);
+}
+</script>
+</html>
