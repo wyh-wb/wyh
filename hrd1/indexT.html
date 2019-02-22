@@ -1,153 +1,434 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title></title>
-    <script type="text/javascript">
-    	
-   		document.addEventListener('plusready', function(){
-   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
-   			
-   		});
-   		
-    </script>
-    <style>
-    	*{
-    		margin: 0;
-    		padding: 0;
-    		font-size: 15px;
-    	}
-    	.table{
-    		width: 300px;
-    		margin: auto;
-    		margin-top: 30px;
-    		text-align: center;
-    		height: 200px;
-    	}
-    	.table td{
-    		border: 1px solid red;
-    		border-right: 0;
-    		width: 100px;
-    		color: #FFFFFF;
-    	}
-    	.table tr td:last-child{
-    		border-right:1px solid red;
-    	}
-    	.table tr:last-child td{
-    		border-top: 0;
-    	}
-    	.table td span{
-    		display: inline-block;
-    		height: 100%;
-    		width: 100%;
-    		background: deepskyblue;
-    		color: #ffffff;
-    		text-align: center;
-    		line-height: 100px;
-    		font-size: 20px;
-    	}
-    	ul{
-    		list-style: none;
-    	}
-    	ul li{
-    		display: inline-block;
-    		width: 100px;
-    		height: 100px;
-    		text-align: center;
-    		line-height: 100px;
-    		background: red;
-    		margin-top: 10px;
-    		color: #FFFFFF;
-    	}
-    	ul div{
-    		display: inline-block;
-    		width: 100px;
-    		height: 100px;
-    		text-align: center;
-    		line-height: 100px;
-    		background: red;
-    		margin-top: 10px;
-    		color: #FFFFFF;
-    	}
-    	.success{
-    		background: green;
-    		width: 100%;
-    		height: 100%;
-    		text-align: center;
-    		line-height: 100px;
-    	}
-    	.fail{
-    		width: 100%;
-    		height: 100%;
-    		background: red;
-    		text-align: center;
-    		line-height: 100px;
-    	}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="maximum-scale=1,user-scalable=no,width=device-width,initial-scale=1"/>
+<title>拖拽</title>
 </head>
+<style>
+
+*{
+margin: 0;
+padding: 0;
+}
+html,body{
+width: 100%;
+height: 100%;
+}
+ul,li{
+list-style: none;
+}
+.warpe{
+width: 100%;
+height: 100%;
+}
+.img{
+width: 100%;
+height: 25%;
+display: flex;
+justify-content: center;
+align-items: center;
+}.img>ul{
+width: 20%;
+height: 50%;
+position: relative;
+border: 1px solid #0099FF;
+transform-style: preserve-3d;
+perspective: 200px;
+}.img>ul>li{
+text-align: center;
+width: 100%;
+height: 100%;
+position: absolute;
+font-size:50px;
+font-weight: 900;
+opacity: 0;
+}
+.ulJ{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.imgopcity{
+	opacity: 1 !important;
+}
+@keyframes myout
+{
+0%{opacity: 0;}
+30%{opacity: 0.1;}
+80%{opacity: 0.7;}
+100%{opacity: 1;}
+}
+@keyframes myouta
+{
+0%{}
+100%{opacity: 0;}
+}
+
+.img>ul>li{
+color: gray;
+}
+.img>ul>li>p{
+	text-shadow:2px 1px 25px cyan;
+	height: 100%;
+	    line-height: 90px;
+}
+.tuo{
+width: 100%;
+height: 40%;
+}.tuo>ul{
+    width: 100%;
+    height: 100%;
+}.tuo>ul>li{
+	width: 100%;
+    height: 100%;
+ color: #fff;
+ position: relative;
+}.tuo>ul>li>span{
+	width: 20%;
+    height: 20%;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+	line-height: 400%;
+}
+.tuoblock{
+display: block !important;
+}
+.otuo:nth-child(4){
+	background: #008000;
+    top: 25%;
+    left: 10%;
+    z-index: 9 !important;
+}
+.otuo:nth-child(5){
+	background: #FF664D;
+    top: 25%;
+    left: 40%;
+    z-index: 9 !important;
+}
+.otuo:nth-child(6){
+	background: #4563BC;
+    top: 25%;
+    left: 70%;
+    z-index: 9 !important
+}
+.tuo>ul>li .otuoone{
+	background: #008000;
+top: 0%;
+left: 10%;
+z-index: 9 !important;
+}
+.tuo>ul>li .otuotow{
+background: #FF664D;
+top: 0%;
+left: 40%;
+z-index: 9 !important;
+}
+.tuo>ul>li .otuothree{
+background: #4563BC;
+top: 0%;
+left: 70%;
+z-index: 9 !important;
+}
+.tuo>ul .otuo{
+	z-index: 99;
+	transform: rotateZ(0deg);
+	/*animation-duration:5s;
+   -webkit-animation-duration:5s; */
+}
+@keyframes mymove
+{
+from {transform: rotateZ(0deg);}
+to {transform: rotateZ(45deg);}
+}
+@keyframes mymovea
+{
+from {transform: rotateZ(45deg);}
+to {transform: rotateZ(0deg);}
+}
+#tj{
+	width: 30%;
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+	position: relative;
+	top: -100px;
+	line-height: 50px;
+	background: #00FFFF;
+	color: #FFFFFF;
+}
+</style>
 <body>
-	<table class="table" cellpadding="0" cellspacing="0">
-		<tr height="100px">
-			<td con="A" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			<td con="B" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			<td con="C" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			
-		</tr>
-		<tr height="100px">
-			<td con="D" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			<td con="E" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			<td con="F" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			
-		</tr>
-	</table>
-	<ul>
-		<li draggable="true" ondragstart="drag(this)">A</li>
-		<li draggable="true" ondragstart="drag(this)">B</li>
-		<li draggable="true" ondragstart="drag(this)">C</li>
-		<li draggable="true" ondragstart="drag(this)">D</li>
-		<li draggable="true" ondragstart="drag(this)">E</li>
-		<div draggable="true" ondragstart="drag(this)">F</div>
-	</ul>
-</body>
-<script type="text/javascript">
+<div class="warpe">
+<div class="img">
+<ul class="ulJ" con="A">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+<ul class="ulJ" con="B">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+<ul class="ulJ" con="C">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+</div>
+<div class="img">
+<ul class="ulJ" con="D">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+<ul class="ulJ" con="E">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+<ul class="ulJ" con="F">
+	<li class="imgli">
+		<p >A</p>
+	</li>
+	<li class="imgli">
+		<p >B</p>
+	</li>
+	<li class="imgli">
+		<p >C</p>
+	</li>
+	<li class="imgli">
+		<p >D</p>
+	</li>
+	<li class="imgli">
+		<p >E</p>
+	</li>
+	<li class="imgli">
+		<p >F</p>
+	</li>
+</ul>
+</div>
+<div class="tuo">
+<ul>
+	<li>
+		<span class="otuoone otuo">A</span>
+		<span class="otuotow otuo">B</span>
+		<span class="otuothree otuo">C</span>
+		<span class=" otuo">D</span>
+		<span class=" otuo">E</span>
+		<span class=" otuo">F</span>
+	</li>
+</ul>
+</div>
+<p id="tj">提交</p>
+</div>
+<script>
+	
+var oImag = document.getElementsByClassName("img")[0].getElementsByTagName("ul")[0].getElementsByTagName("li");
+var oUl=document.getElementsByClassName("ulJ");
+var sz=[];
+for(var i=0;i<oUl.length;i++){
+	var l=oUl[i].offsetLeft;
+	var t=oUl[i].offsetTop;
+	var r=oUl[i].offsetLeft+oUl[i].offsetWidth;
+	var b=oUl[i].offsetTop+oUl[i].offsetHeight;
+	sz.push({"l":l,"t":t,"r":r,"b":b});
+}
+var oTuo = document.getElementsByClassName("otuo");
+var pagex=0;
+var pagey=0;
+for(var i = 0;i < oTuo.length; i++)
+{
+//console.log(oTuo[i].classLis) 	
+//手指触摸开始， 记录的初始位置
+oTuo[i].addEventListener("touchstart",function(evt)
+{    
+	
+    //手指触摸开始的时候改变样式
+	this.style.cssText = "width:25% !important;height:25% !important";
+	    console.log('开始')
+	    	var e = window.event || evt;
+	    	//手指触摸初始位置
+	    	var touch = e.targetTouches[0];
+	    	//手指触摸点
+	 oL = touch.pageX - this.offsetLeft;
+	 oT = touch.pageY - this.offsetTop;
+
+   //阻止默认事件
+            e.preventDefault();
+})
+oTuo[i].index = i;
+
+//拖动中的，位置记录
+oTuo[i].addEventListener("touchmove",function(evt)
+{         // console.log(this.index);
+		            //var _this = this.index;
+	            	var e = window.event || evt;
+	            	//手指拖动位置
+	            	var touch = e.targetTouches[0];
+	            	     //手指拖动位置    -  手指触摸开始
+	            	var oLeft = touch.pageX - oL;
+	                var oTop = touch.pageY - oT;
+	                pagex=touch.pageX;
+	                pagey=touch.pageY;
+		            //   console.log(oTop);
+	            	 //阻止默认事件
+	           	e.preventDefault();
+	           	var x=true;
+	           	this.style.cssText = "animation: mymove 0.5s linear 1 alternate;transform:rotateZ(45deg)";
+
+	this.style.left = oLeft + 'px';
+	this.style.top = oTop + 'px';
+	this.style.opacity= 0.6;
+});
+
+//触摸结束时的处理
+oTuo[i].addEventListener('touchend', function(evt)
+    {
+    	var e = window.event || evt;
+	            	//手指拖动位置
+	            	var touch = e.targetTouches[0];
+    	for(var a=0;a<sz.length;a++){
+	  		if(pagey > sz[a].t && pagey < sz[a].b && pagex > sz[a].l && pagex < sz[a].r){
+		//console.log(oLeft)
+	  /* this.style.cssText = "animation: mymove 0.5s linear 1 alternate;transform:rotateZ(45deg)";*/
+	   
+	 	   for (var j = 0; j < oUl[a].getElementsByTagName("li").length; j++){
+	 	   //	console.log(oImag[this.index])
+				 	  if(oUl[a].getElementsByTagName("li")[j]!=oUl[a].getElementsByTagName("li")[this.index]){
+					     oUl[a].getElementsByTagName("li")[j].className = "";
+					     oUl[a].getElementsByTagName("li")[j].style.cssText = "";
+					     
+					   }
+				 	//  oImag[j].className ="imgopcity";
+                      // oImag[j].style.cssText = "";   
+            };
+         oUl[a].getElementsByTagName("li")[this.index].style.cssText = "animation: myout 1s linear 0.6s 1 normal;";
+         oUl[a].setAttribute("res",oUl[a].getElementsByTagName("li")[this.index].getElementsByTagName("p")[0].innerHTML);
+     //  oImag[this.index].setAttribute("class","imgopcity");
+	     oUl[a].getElementsByTagName("li")[this.index].addEventListener("webkitAnimationStart", function(){ //动画开始时事件
+			//console.log("动画开始");//动画结束时，控制台输出1
+			   console.log("动画开始")
+			    
+			}, false);
+   		oUl[a].getElementsByTagName("li")[this.index].addEventListener("webkitAnimationEnd", function(){ //动画结束时事件
+		    console.log("动画结束");//动画结束时，控制台输出1
+		    this.className = "imgopcity";
+		}, false);
+	 }else{
+	 	this.style.cssText = "animation: mymovea 0.5s linear 1 alternate;transform:rotateZ(0deg)";
+	 	//oImag[this.index].style.cssText = "animation: myouta 0.5s linear 1 normal;";
+	 }
+	  }
+    	console.log('结束')
+        var e = window.event || evt;
+        e.preventDefault();//阻止其他事件
+        //手指触摸结束的时候改变样式
+      this.style.cssText = "";
+      
+})
+}
+document.getElementById("tj").onclick=function(){
+	var oUl=document.getElementsByClassName("ulJ");
 	var result=0;
-		function allowDrop(ev)
-		{
-		ev.preventDefault();
-		}
-		var mb;
-		function drag(ev)
-		{
-		 mb=ev;
-		}
-		
-		function drop(ev)
-		{
-		ev.preventDefault();
-		var data=mb.innerHTML;
-		if(data==ev.currentTarget.getAttribute("con")){
-			 if(ev.currentTarget.innerHTML==""){
-            	result++;
-            }else if(ev.currentTarget.getElementsByTagName("div")[0].getAttribute("class")=="fail"){
-            	result++;
-            }
-			ev.currentTarget.innerHTML="<div class='success' draggable='true' ondragstart='drag(this)'>"+data+"</div>";
-           
-		}else{
-			if(ev.currentTarget.getElementsByTagName("div")[0]!=undefined){
-			if(ev.currentTarget.getElementsByTagName("div")[0].getAttribute("class")=="success"){
-            	result--;
-            }
-			}
-			ev.currentTarget.innerHTML="<div class='fail' draggable='true' ondragstart='drag(this)'>"+data+"</div>";
-			 
-			
-		}
-		if(result==6){
-			alert("恭喜通关");
-		}
-		
-		}
+    for(var i=0;i<oUl.length;i++){
+    	if(oUl[i].getAttribute("con")==oUl[i].getAttribute("res")){
+    		result++;
+    		if(oUl[i].getElementsByClassName("imgopcity")[0]!=undefined){
+    		oUl[i].getElementsByClassName("imgopcity")[0].style.color="green";
+    		}
+    	}else{
+    		if(oUl[i].getElementsByClassName("imgopcity")[0]!=undefined){
+    		oUl[i].getElementsByClassName("imgopcity")[0].style.color="red";
+    			
+    		}
+
+    	}
+    }
+    if(result==6){
+    	alert("恭喜通关");
+    }
+}
+
+
 </script>
+
+</body>
 </html>
