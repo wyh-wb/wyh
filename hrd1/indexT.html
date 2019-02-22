@@ -382,7 +382,14 @@ oTuo[i].addEventListener('touchend', function(evt)
             };
          oUl[a].getElementsByTagName("li")[this.index].style.cssText = "animation: myout 1s linear 0.6s 1 normal;";
          oUl[a].setAttribute("res",oUl[a].getElementsByTagName("li")[this.index].getElementsByTagName("p")[0].innerHTML);
-     //  oImag[this.index].setAttribute("class","imgopcity");
+    for(var q=0;q<oUl.length;q++){
+		    	if(oUl[q].getAttribute("res")==oUl[a].getElementsByTagName("li")[this.index].getElementsByTagName("p")[0].innerHTML){
+		    		if(oUl[q].getElementsByClassName("imgopcity")[0]!=undefined){
+		    		oUl[q].getElementsByClassName("imgopcity")[0].className="";
+		    		}
+		    	}
+		    }
+    //  oImag[this.index].setAttribute("class","imgopcity");
 	     oUl[a].getElementsByTagName("li")[this.index].addEventListener("webkitAnimationStart", function(){ //动画开始时事件
 			//console.log("动画开始");//动画结束时，控制台输出1
 			   console.log("动画开始")
@@ -390,7 +397,9 @@ oTuo[i].addEventListener('touchend', function(evt)
 			}, false);
    		oUl[a].getElementsByTagName("li")[this.index].addEventListener("webkitAnimationEnd", function(){ //动画结束时事件
 		    console.log("动画结束");//动画结束时，控制台输出1
+		    
 		    this.className = "imgopcity";
+		    
 		}, false);
 	 }else{
 	 	this.style.cssText = "animation: mymovea 0.5s linear 1 alternate;transform:rotateZ(0deg)";
