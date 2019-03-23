@@ -131,6 +131,19 @@ body{
        document.getElementById("hour").innerHTML="相识了"+shi(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"个小时";
        document.getElementById("minute").innerHTML="相识了"+fen(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"分钟";
        document.getElementById("second").innerHTML="相识了"+miao(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"秒";
-        </script>
+         function re(){
+       	 document.getElementById("second").innerHTML="相识了"+miao(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"秒";
+       }
+       setInterval(re,1000);
+       function refen(){
+       document.getElementById("minute").innerHTML="相识了"+fen(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"分钟";
+       }
+       setInterval(refen,60000);
+       function reshi(){
+       document.getElementById("hour").innerHTML="相识了"+shi(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"个小时";
+       }
+       setInterval(reshi,3600000);
+       
+	    </script>
     </body>
 </html>
