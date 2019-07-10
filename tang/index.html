@@ -13,9 +13,9 @@
 			<p>辉哥哥& 汤妹妹</p>
 		</div>
 		<div class="text main" style="height: 300px;">
-			<p>相识于2019年2月20日12点22分</p>
-			<p>相见于2019年5月16日10点15分</p>
 			<p>于2019年7月7日0点0分在一起</p>
+			<p>相见于2019年5月16日10点15分</p>
+			<p>相识于2019年2月20日12点22分</p>
 			<p id="day"></p>
 			<p id="day1"></p>
 			<p id="day2"></p>
@@ -35,8 +35,8 @@
 			</div>
 		</div>
 -->
-<canvas id="c" style="position: absolute;z-index: -1;text-align: center;left: 0;top: 0;"></canvas>
-       
+		<!--<canvas id="c" style="position: absolute;z-index: -1;text-align: center;left: 0;top: 0;background: url(/Cloud20160907/img/Automatic_allocation.png);"></canvas>-->
+
 		<style>
 			body {
 				text-align: center;
@@ -151,23 +151,23 @@
 			}
 
 			/*new Date()算出的月份要加一*/
-			document.getElementById("day").innerHTML = "相识了" + getOffsetDays(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "天";
-			document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "个小时";
-			document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "分钟";
-			document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "秒";
+			document.getElementById("day").innerHTML = "相识了" + getOffsetDays(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "天";
+			document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
+			document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
+			document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
 
 			function re() {
-				document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "秒";
+				document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
 			}
 			setInterval(re, 1000);
 
 			function refen() {
-				document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "分钟";
+				document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
 			}
 			setInterval(refen, 60000);
 
 			function reshi() {
-				document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "个小时";
+				document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
 			}
 			setInterval(reshi, 3600000);
 		</script>
