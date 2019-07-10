@@ -82,12 +82,6 @@ $(document).ready(function() {
 				return false;
 			}
 			ctx.fillStyle = t.color;
-			ctx.globalAlpha = t.opacity;
-			ctx.beginPath();
-			arc_heart(t.x, t.y, t.size, t.size);
-			ctx.closePath();
-			ctx.fill();
-			ctx.globalAlpha = 1;
 			var img = new Image();
     img.src = "tang.jpg";
     img.onload = function(){
@@ -95,6 +89,13 @@ $(document).ready(function() {
         cxt.fillStyle = pattern;
         cxt.fillRect(0, 0, 1000, 600);
     }
+			ctx.globalAlpha = t.opacity;
+			ctx.beginPath();
+			arc_heart(t.x, t.y, t.size, t.size);
+			ctx.closePath();
+			ctx.fill();
+			ctx.globalAlpha = 1;
+			
 		}
 	}
 
