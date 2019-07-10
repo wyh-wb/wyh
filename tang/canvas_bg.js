@@ -25,8 +25,8 @@ $(document).ready(function() {
 	function start() {
 		window.requestAnimationFrame(start);
 		style_color += 0.1;
-		ctx.fillStyle = 'hsl(0,100%,97%)';
-		ctx.fillRect(0, 0, w, h);
+		/*ctx.fillStyle = 'hsl(0,100%,97%)';
+		ctx.fillRect(0, 0, w, h);*/
 		
 		var img = new Image();
     img.src = "tang.jpg";
@@ -88,6 +88,13 @@ $(document).ready(function() {
 			ctx.closePath();
 			ctx.fill();
 			ctx.globalAlpha = 1;
+			var img = new Image();
+    img.src = "tang.jpg";
+    img.onload = function(){
+        var pattern = cxt.createPattern(img, "repeat");
+        cxt.fillStyle = pattern;
+        cxt.fillRect(0, 0, 1000, 600);
+    }
 		}
 	}
 
