@@ -29,67 +29,37 @@
 			<p id="second1"></p>
 			<p id="second2"></p>
 		</div>
-		<!--<div style="position: absolute;top:260px;left:0;width: 100%;text-align: center;">
-			<div class="heart-body">
-				<div class="heart-shape"></div>
-			</div>
-		</div>
--->
-		<!--<canvas id="c" style="position: absolute;z-index: -1;text-align: center;left: 0;top: 0;background: url(/Cloud20160907/img/Automatic_allocation.png);"></canvas>-->
-
+<div class="wrap"></div>
 		<style>
 			body {
+				overflow: hidden;
+				margin: 0 auto;
 				text-align: center;
 				background: url(tang.jpg) no-repeat;
 				background-size: 100%;
 			}
-			
-			.heart-body {
-				width: 110px;
-				text-align: center;
-				display: inline-block;
-				opacity: 0.5;
-			}
-			
-			.heart-shape {
-				position: relative;
-				width: 100px;
-				height: 100px;
-				background-color: #f70e0e;
-				-webkit-transform: rotate(45deg);
-				/* Safari 和 Chrome */
-				-moz-transform: rotate(45deg);
-				/* Firefox */
-				-ms-transform: rotate(45deg);
-				/* IE 9 */
-				-o-transform: rotate(45deg);
-				/* Opera */
-				transform: rotate(45deg);
-			}
-			
-			.heart-shape:before,
-			.heart-shape:after {
+			.snowfall-flakes:before{
+				content: "";
+				/*绝对定位*/
 				position: absolute;
-				content: '';
-				width: 100px;
-				height: 100px;
-				webkit-border-radius: 50%;
-				/**兼容苹果；谷歌，等一些浏览器认*/
-				-moz-border-radius: 50%;
-				/**兼容火狐浏览器*/
-				-o-border-radius: 50%;
-				/**兼容opera浏览器*/
-				border-radius: 50%;
+				left:0px;
+				top: 0px;
+				width: 10px;
+				height: 16px;
+				transform: rotate(-45deg);
 				background-color: red;
+				border-radius: 5px 5px 1px 1px;
 			}
-			
-			.heart-shape:before {
-				left: -45px;
-			}
-			
-			.heart-shape:after {
-				top: -45px;
-				left: 0;
+			.snowfall-flakes:after{
+				content: "";   /*激活伪元素的必要因素*/
+				position: absolute;
+				left:0px;
+				top: 0px;
+				width: 10px;
+				height: 16px;
+				transform: translateX(4.3px) rotate(45deg);
+				background-color: red;
+				border-radius: 5px 5px 1px 1px;
 			}
 			
 			.text {
@@ -170,6 +140,7 @@
 				document.getElementById("hour").innerHTML = "在一起" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
 			}
 			setInterval(reshi, 3600000);
+			$(document).snowfall({flakeCount : 100, maxSpeed :5});
 		</script>
 	</body>
 
