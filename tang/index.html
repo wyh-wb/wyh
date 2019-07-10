@@ -1,155 +1,176 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        
-        <title></title>
-    </head>
-    <body>
-        <div class="text" style="top: 200px;">
-            <p>韦云辉 & 汤梦慧</p>
-        </div>
-         <div class="text main" style="height: 300px;">
-             <p>相识于2019年2月20日12点22分</p>
-	     <p>相见于2019年5月16日10点15分</p>
-             <p id="day"></p>
-             <p id="day1"></p>
-		 
-             <p id="hour"></p>
-             <p id="hour1"></p>
-             <p id="minute"></p>
-             <p id="minute1"></p>
-             <p id="second"></p>
-             <p id="second1"></p>
-         </div>
-         <div style="position: absolute;top:260px;left:0;width: 100%;text-align: center;">
-         	
-         
-        <div class="heart-body">
-        <div class="heart-shape"></div>
-    </div>
-</div>
-        
-<style>
-body{
-    text-align: center;
-    background:url(tang.jpg) no-repeat;
-    background-size: 100%;
 
-}
-.heart-body {
-	        width: 110px;
-	        text-align: center;
-            display: inline-block;
-            opacity: 0.5;
-        }
-        .heart-shape {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: #f70e0e;
-             -webkit-transform: rotate(45deg);
-            /* Safari 和 Chrome */
-            -moz-transform: rotate(45deg);
-            /* Firefox */
-            -ms-transform: rotate(45deg);
-            /* IE 9 */
-            -o-transform: rotate(45deg);
-            /* Opera */
-            transform: rotate(45deg);
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        }
-.heart-shape:before,.heart-shape:after {
-            position: absolute;
-            content: '';
-            width: 100px;
-            height: 100px;
-            webkit-border-radius: 50%;
-            /**兼容苹果；谷歌，等一些浏览器认*/
-            -moz-border-radius: 50%;
-            /**兼容火狐浏览器*/
-            -o-border-radius: 50%;
-            /**兼容opera浏览器*/
-            border-radius: 50%;
-            background-color: red;
+		<title></title>
+	</head>
 
-        }
-        .heart-shape:before {
-            left: -45px;
-        }
-        .heart-shape:after {
-            top: -45px;
-            left: 0;
-        }
-
-
-.text{
-    width: 300px;
-    height: 200px;
-    position: absolute;
-    left: 50%;
-    margin-left: -150px;
-    background-image: -webkit-linear-gradient(left,blue,#66ffff 10%,#cc00ff 20%,#CC00CC 30%, #CCCCFF 40%, #00FFFF 50%,#CCCCFF 60%,#CC00CC 70%,#CC00FF 80%,#66FFFF 90%,blue 100%);
-    -webkit-text-fill-color: transparent;/* 将字体设置成透明色 */
-    -webkit-background-clip: text;/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
-    -webkit-background-size: 200% 100%; 
-    -webkit-animation: masked-animation 4s linear infinite;
-    font-size: 35px;
-}
-.tang{
-	top: 600px;
-}
-.main{
-	top: 280px;
-	font-size: 20px;
-}
-@keyframes masked-animation {
-    0% {
-        background-position: 0  0;
-    }
-    100% {
-        background-position: -100%  0;
-    }
-}
-        </style>
-        <script>
-        	/*var today=alert(new Date(2019, 3, 22));*/
-        	function getOffsetDays(time1, time2) {
-    var offsetTime = Math.abs(time1 - time2);
-    return Math.floor(offsetTime / (3600 * 24*1000 ));
-}
-        	function shi(time1, time2) {
-    var offsetTime = Math.abs(time1 - time2);
-    return Math.floor(offsetTime / (3600 *1000 ));
-}
-     function fen(time1, time2) {
-    var offsetTime = Math.abs(time1 - time2);
-    return Math.floor(offsetTime / (60 *1000 ));
-}
-     function miao(time1, time2) {
-    var offsetTime = Math.abs(time1 - time2);
-    return Math.floor(offsetTime / ( 1000 ));
-}
-        	
- /*new Date()算出的月份要加一*/
-       document.getElementById("day").innerHTML="相识了"+getOffsetDays(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"天";
-       document.getElementById("hour").innerHTML="相识了"+shi(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"个小时";
-       document.getElementById("minute").innerHTML="相识了"+fen(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"分钟";
-       document.getElementById("second").innerHTML="相识了"+miao(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"秒";
-         function re(){
-       	 document.getElementById("second").innerHTML="相识了"+miao(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"秒";
-       }
-       setInterval(re,1000);
-       function refen(){
-       document.getElementById("minute").innerHTML="相识了"+fen(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"分钟";
-       }
-       setInterval(refen,60000);
-       function reshi(){
-       document.getElementById("hour").innerHTML="相识了"+shi(Date.now(), (new Date(2019, 1, 20,12,22)).getTime())+"个小时";
-       }
-       setInterval(reshi,3600000);
+	<body>
+		<div class="text" style="top: 200px;">
+			<p>辉哥哥& 汤妹妹</p>
+		</div>
+		<div class="text main" style="height: 300px;">
+			<p>相识于2019年2月20日12点22分</p>
+			<p>相见于2019年5月16日10点15分</p>
+			<p>于2019年7月7日0点0分在一起</p>
+			<p id="day"></p>
+			<p id="day1"></p>
+			<p id="day2"></p>
+			<p id="hour"></p>
+			<p id="hour1"></p>
+			<p id="hour2"></p>
+			<p id="minute"></p>
+			<p id="minute1"></p>
+			<p id="minute2"></p>
+			<p id="second"></p>
+			<p id="second1"></p>
+			<p id="second2"></p>
+		</div>
+		<!--<div style="position: absolute;top:260px;left:0;width: 100%;text-align: center;">
+			<div class="heart-body">
+				<div class="heart-shape"></div>
+			</div>
+		</div>
+-->
+<canvas id="c" style="position: absolute;z-index: -1;text-align: center;left: 0;top: 0;"></canvas>
        
-	    </script>
-    </body>
+		<style>
+			body {
+				text-align: center;
+				background: url(tang.jpg) no-repeat;
+				background-size: 100%;
+			}
+			
+			.heart-body {
+				width: 110px;
+				text-align: center;
+				display: inline-block;
+				opacity: 0.5;
+			}
+			
+			.heart-shape {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background-color: #f70e0e;
+				-webkit-transform: rotate(45deg);
+				/* Safari 和 Chrome */
+				-moz-transform: rotate(45deg);
+				/* Firefox */
+				-ms-transform: rotate(45deg);
+				/* IE 9 */
+				-o-transform: rotate(45deg);
+				/* Opera */
+				transform: rotate(45deg);
+			}
+			
+			.heart-shape:before,
+			.heart-shape:after {
+				position: absolute;
+				content: '';
+				width: 100px;
+				height: 100px;
+				webkit-border-radius: 50%;
+				/**兼容苹果；谷歌，等一些浏览器认*/
+				-moz-border-radius: 50%;
+				/**兼容火狐浏览器*/
+				-o-border-radius: 50%;
+				/**兼容opera浏览器*/
+				border-radius: 50%;
+				background-color: red;
+			}
+			
+			.heart-shape:before {
+				left: -45px;
+			}
+			
+			.heart-shape:after {
+				top: -45px;
+				left: 0;
+			}
+			
+			.text {
+				width: 300px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				margin-left: -150px;
+				background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+				-webkit-text-fill-color: transparent;
+				/* 将字体设置成透明色 */
+				-webkit-background-clip: text;
+				/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
+				-webkit-background-size: 200% 100%;
+				-webkit-animation: masked-animation 4s linear infinite;
+				font-size: 35px;
+			}
+			
+			.tang {
+				top: 600px;
+			}
+			
+			.main {
+				top: 280px;
+				font-size: 20px;
+			}
+			
+			@keyframes masked-animation {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: -100% 0;
+				}
+			}
+		</style>
+		<script src="jquery-1.9.1.js"></script>
+		<script src="canvas_bg.js"></script>
+		<script>
+			/*var today=alert(new Date(2019, 3, 22));*/
+			function getOffsetDays(time1, time2) {
+				var offsetTime = Math.abs(time1 - time2);
+				return Math.floor(offsetTime / (3600 * 24 * 1000));
+			}
+
+			function shi(time1, time2) {
+				var offsetTime = Math.abs(time1 - time2);
+				return Math.floor(offsetTime / (3600 * 1000));
+			}
+
+			function fen(time1, time2) {
+				var offsetTime = Math.abs(time1 - time2);
+				return Math.floor(offsetTime / (60 * 1000));
+			}
+
+			function miao(time1, time2) {
+				var offsetTime = Math.abs(time1 - time2);
+				return Math.floor(offsetTime / (1000));
+			}
+
+			/*new Date()算出的月份要加一*/
+			document.getElementById("day").innerHTML = "相识了" + getOffsetDays(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "天";
+			document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "个小时";
+			document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "分钟";
+			document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "秒";
+
+			function re() {
+				document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "秒";
+			}
+			setInterval(re, 1000);
+
+			function refen() {
+				document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "分钟";
+			}
+			setInterval(refen, 60000);
+
+			function reshi() {
+				document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 1, 20, 12, 22)).getTime()) + "个小时";
+			}
+			setInterval(reshi, 3600000);
+		</script>
+	</body>
+
 </html>
