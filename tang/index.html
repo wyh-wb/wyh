@@ -99,6 +99,8 @@
 		<script src="jquery-1.9.1.js"></script>
 		<script src="canvas_bg.js"></script>
 		<script>
+			var hh=document.documentElement.clientHeight || document.body.clientHeight+"px";
+			$("body").css("height",hh);
 			/*var today=alert(new Date(2019, 3, 22));*/
 			function getOffsetDays(time1, time2) {
 				var offsetTime = Math.abs(time1 - time2);
