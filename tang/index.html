@@ -151,23 +151,23 @@
 			}
 
 			/*new Date()算出的月份要加一*/
-			document.getElementById("day").innerHTML = "相识了" + getOffsetDays(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "天";
-			document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
-			document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
-			document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
+			document.getElementById("day").innerHTML = "在一起" + getOffsetDays(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "天";
+			document.getElementById("hour").innerHTML = "在一起" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
+			document.getElementById("minute").innerHTML = "在一起" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
+			document.getElementById("second").innerHTML = "在一起" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
 
 			function re() {
-				document.getElementById("second").innerHTML = "相识了" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
+				document.getElementById("second").innerHTML = "在一起" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
 			}
 			setInterval(re, 1000);
 
 			function refen() {
-				document.getElementById("minute").innerHTML = "相识了" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
+				document.getElementById("minute").innerHTML = "在一起" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
 			}
 			setInterval(refen, 60000);
 
 			function reshi() {
-				document.getElementById("hour").innerHTML = "相识了" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
+				document.getElementById("hour").innerHTML = "在一起" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
 			}
 			setInterval(reshi, 3600000);
 		</script>
