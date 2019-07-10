@@ -27,6 +27,16 @@ $(document).ready(function() {
 		style_color += 0.1;
 		ctx.fillStyle = 'hsl(0,100%,97%)';
 		ctx.fillRect(0, 0, w, h);
+		
+		var img = new Image();
+    img.src = "tang.jpg";
+    img.onload = function(){
+        var pattern = cxt.createPattern(img, "repeat");
+        cxt.fillStyle = pattern;
+        cxt.fillRect(0, 0, 1000, 600);
+    }
+    
+    
 		if(all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability) {
 			all_element.push(new ready_run);
 		}
