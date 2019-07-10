@@ -25,7 +25,7 @@ $(document).ready(function() {
 	function start() {
 		window.requestAnimationFrame(start);
 		style_color += 0.1;
-		ctx.fillStyle = 'hsl(0,100%,97%)';
+		ctx.fillStyle = '';
 		ctx.fillRect(0, 0, w, h);
 		if(all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability) {
 			all_element.push(new ready_run);
@@ -71,7 +71,7 @@ $(document).ready(function() {
 				t.to_reset();
 				return false;
 			}
-			ctx.fillStyle = t.color;
+			ctx.fillStyle ='';
 			ctx.globalAlpha = t.opacity;
 			ctx.beginPath();
 			arc_heart(t.x, t.y, t.size, t.size);
