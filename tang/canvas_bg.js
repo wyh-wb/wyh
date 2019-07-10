@@ -25,18 +25,8 @@ $(document).ready(function() {
 	function start() {
 		window.requestAnimationFrame(start);
 		style_color += 0.1;
-		/*ctx.fillStyle = 'hsl(0,100%,97%)';
-		ctx.fillRect(0, 0, w, h);*/
-		
-		var img = new Image();
-    img.src = "tang.jpg";
-    img.onload = function(){
-        var pattern = cxt.createPattern(img, "repeat");
-        cxt.fillStyle = pattern;
-        cxt.fillRect(0, 0, 1000, 600);
-    }
-    
-    
+		ctx.fillStyle = 'hsl(0,100%,97%)';
+		ctx.fillRect(0, 0, w, h);
 		if(all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability) {
 			all_element.push(new ready_run);
 		}
@@ -82,20 +72,12 @@ $(document).ready(function() {
 				return false;
 			}
 			ctx.fillStyle = t.color;
-			var img = new Image();
-    img.src = "tang.jpg";
-    img.onload = function(){
-        var pattern = cxt.createPattern(img, "repeat");
-        cxt.fillStyle = pattern;
-        cxt.fillRect(0, 0, 1000, 600);
-    }
 			ctx.globalAlpha = t.opacity;
 			ctx.beginPath();
 			arc_heart(t.x, t.y, t.size, t.size);
 			ctx.closePath();
 			ctx.fill();
 			ctx.globalAlpha = 1;
-			
 		}
 	}
 
@@ -114,3 +96,10 @@ $(document).ready(function() {
 	}
 	start();
 });
+/*var img = new Image();
+    img.src = "tang.jpg";
+    img.onload = function(){
+        var pattern = cxt.createPattern(img, "repeat");
+        cxt.fillStyle = pattern;
+        cxt.fillRect(0, 0, 1000, 600);
+    }*/
