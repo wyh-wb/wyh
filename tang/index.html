@@ -16,18 +16,9 @@
 			<p>于2019年7月7日0点0分在一起</p>
 			<p>相见于2019年5月16日10点15分</p>
 			<p>相识于2019年2月20日12点22分</p>
-			<p id="day"></p>
-			<p id="day1"></p>
-			<p id="day2"></p>
-			<p id="hour"></p>
-			<p id="hour1"></p>
-			<p id="hour2"></p>
-			<p id="minute"></p>
-			<p id="minute1"></p>
-			<p id="minute2"></p>
-			<p id="second"></p>
-			<p id="second1"></p>
-			<p id="second2"></p>
+			<p id="together"></p>
+			<p id="meet"></p>
+			<p id="acquaintance"></p>
 		</div>
 <div class="wrap"></div>
 		<style>
@@ -102,46 +93,39 @@
 			var hh=document.documentElement.clientHeight || document.body.clientHeight+"px";
 			$("body").css("height",hh);
 			/*var today=alert(new Date(2019, 3, 22));*/
-			function getOffsetDays(time1, time2) {
-				var offsetTime = Math.abs(time1 - time2);
-				return Math.floor(offsetTime / (3600 * 24 * 1000));
+			function sj(date1){
+				//var date1= '2015/05/01 00:00:00';  //开始时间
+		        var date2 = new Date();    //结束时间
+		        var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数      
+        //计算出相差年数
+        var years=Math.floor(date3/(24*3600*1000*30*12));
+         //计算出月数
+        var leave=date3%(24*3600*1000*30*12)    //计算年数后剩余的毫秒数
+        var month=Math.floor(leave/(3600*1000*24*30))
+        
+        //计算出相差天数
+        var leaves=date3%(24*3600*1000*30)    //计算月数后剩余的毫秒数
+        var days=Math.floor(leaves/(24*3600*1000))
+        //计算出小时数
+        var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+        var hours=Math.floor(leave1/(3600*1000))
+        //计算相差分钟数
+        var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+        var minutes=Math.floor(leave2/(60*1000))
+        //计算相差秒数
+        var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+        var seconds=Math.round(leave3/1000);
+        return years+"年 "+month+"月 "+days+"天 "+hours+"小时 "+minutes+"分钟 "+seconds+"秒";
 			}
-
-			function shi(time1, time2) {
-				var offsetTime = Math.abs(time1 - time2);
-				return Math.floor(offsetTime / (3600 * 1000));
-			}
-
-			function fen(time1, time2) {
-				var offsetTime = Math.abs(time1 - time2);
-				return Math.floor(offsetTime / (60 * 1000));
-			}
-
-			function miao(time1, time2) {
-				var offsetTime = Math.abs(time1 - time2);
-				return Math.floor(offsetTime / (1000));
-			}
-
-			/*new Date()算出的月份要加一*/
-			document.getElementById("day").innerHTML = "在一起" + getOffsetDays(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "天";
-			document.getElementById("hour").innerHTML = "在一起" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
-			document.getElementById("minute").innerHTML = "在一起" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
-			document.getElementById("second").innerHTML = "在一起" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
-
+			
 			function re() {
-				document.getElementById("second").innerHTML = "在一起" + miao(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "秒";
+				document.getElementById("together").innerHTML = "在一起 " +sj('2019/07/07 00:00:00');
+				document.getElementById("meet").innerHTML = "相见了 " +sj('2019/05/16 10:15:00');
+				document.getElementById("acquaintance").innerHTML = "相识了 " +sj('2019/02/20 12:22:00');
 			}
 			setInterval(re, 1000);
 
-			function refen() {
-				document.getElementById("minute").innerHTML = "在一起" + fen(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "分钟";
-			}
-			setInterval(refen, 60000);
-
-			function reshi() {
-				document.getElementById("hour").innerHTML = "在一起" + shi(Date.now(), (new Date(2019, 6, 7, 0, 0)).getTime()) + "个小时";
-			}
-			setInterval(reshi, 3600000);
+			/*爱心*/
 			$(document).snowfall({flakeCount : 100, maxSpeed :5});
 		</script>
 	</body>
