@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<title>开花结果</title>
+	</head>
+
+	<body>
+		<div class="text" style="top: 200px;">
+			<p><span onclick="hui()">辉哥哥</span>& <span onclick="tang()">汤妹妹</span></p>
+		</div>
+		<div class="text main" style="height: 300px;">
+			<p>于2019年7月7日0点0分在一起</p>
+			<p>相见于2019年5月16日10点15分</p>
+			<p>相识于2019年2月20日12点22分</p>
+			<p id="together"></p>
+			<p id="together_day"></p>
+			<p id="meet"></p>
+			<p id="meet_day"></p>
+			<p id="acquaintance"></p>
+			<p id="acquaintance_day"></p>
+		</div>
+<div class="wrap"></div>
+		<style>
+			body {
+				overflow: hidden;
+				margin: 0 auto;
+				text-align: center;
+				background: url(tang.jpg) no-repeat;
+				background-size: 100% 100%;
+			}
+			#together,#meet,#acquaintance{
+				font-size: 16px;
+			}
+			.snowfall-flakes:before{
+				content: "";
+				/*绝对定位*/
+				position: absolute;
+				left:0px;
+				top: 0px;
+				width: 10px;
+				height: 16px;
+				transform: rotate(-45deg);
+				background-color: red;
+				border-radius: 5px 5px 1px 1px;
+			}
+			.snowfall-flakes:after{
+				content: "";   /*激活伪元素的必要因素*/
+				position: absolute;
+				left:0px;
+				top: 0px;
+				width: 10px;
+				height: 16px;
+				transform: translateX(4.3px) rotate(45deg);
+				background-color: red;
+				border-radius: 5px 5px 1px 1px;
+			}
+			
+			.text {
+				width: 300px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				margin-left: -150px;
+				background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+				-webkit-text-fill-color: transparent;
+				/* 将字体设置成透明色 */
+				-webkit-background-clip: text;
+				/* 裁剪背景图，使文字作为裁剪区域向外裁剪 */
+				-webkit-background-size: 200% 100%;
+				-webkit-animation: masked-animation 4s linear infinite;
+				font-size: 35px;
+			}
+			
+			.tang {
+				top: 600px;
+			}
+			
+			.main {
+				top: 280px;
+				font-size: 20px;
+			}
+			
+			@keyframes masked-animation {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: -100% 0;
+				}
+			}
+		</style>
+		<script src="jquery-1.9.1.js"></script>
+		<script src="canvas_bg.js"></script>
+		<script>
+			var hh=document.documentElement.clientHeight || document.body.clientHeight+"px";
+			$("body").css("height",hh);
+			/*var today=alert(new Date(2019, 3, 22));*/
+			function sj(date1){
+				//var date1= '2015/05/01 00:00:00';  //开始时间
+		        var date2 = new Date();    //结束时间
+		        var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数      
+        //计算出相差年数
+        var years=Math.floor(date3/(24*3600*1000*30*12));
+         //计算出月数
+        var leave=date3%(24*3600*1000*30*12)    //计算年数后剩余的毫秒数
+        var month=Math.floor(leave/(3600*1000*24*30))
+        
+        //计算出相差天数
+        var leaves=date3%(24*3600*1000*30)    //计算月数后剩余的毫秒数
+        var days=Math.floor(leaves/(24*3600*1000))
+        //计算出小时数
+        var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+        var hours=Math.floor(leave1/(3600*1000))
+        //计算相差分钟数
+        var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+        var minutes=Math.floor(leave2/(60*1000))
+        //计算相差秒数
+        var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+        var seconds=Math.round(leave3/1000);
+        return years+"年 "+month+"月 "+days+"天 "+hours+"小时 "+minutes+"分钟 "+seconds+"秒";
+			}
+			function sj_day(data){
+				 var date2 = new Date();    //结束时间
+		        var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数      
+        //计算出相差天数
+        var years=Math.floor(date3/(24*3600*1000));
+			}
+			
+			function re() {
+				document.getElementById("together").innerHTML = "在一起 " +sj('2019/07/07 00:00:00');
+				document.getElementById("together_day").innerHTML = "在一起 " +sj_day('2019/07/07 00:00:00')+"天";
+				document.getElementById("meet").innerHTML = "相见了 " +sj('2019/05/16 10:15:00');
+				document.getElementById("meet_day").innerHTML = "相见了 " +sj_day('2019/05/16 10:15:00')+"天";
+				document.getElementById("acquaintance").innerHTML = "相识了 " +sj('2019/02/20 12:22:00');
+				document.getElementById("acquaintance_day").innerHTML = "相识了 " +sj_day('2019/02/20 12:22:00')+"天";
+			}
+			setInterval(re, 1000);
+
+			/*爱心*/
+			$(document).snowfall({flakeCount : 100, maxSpeed :5});
+			function tang(){
+				window.location.href='./love_letter.html';
+			}
+			function hui(){
+				window.location.href='./love_letter_tang.html';
+			}
+		</script>
+	</body>
+
+</html>
