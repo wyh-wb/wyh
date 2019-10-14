@@ -9,10 +9,10 @@
 	</head>
 
 	<body>
-		<div class="text" style="top: 200px;">
+		<div class="text" style="top: 150px;">
 			<p><span onclick="hui()">辉哥哥</span>& <span onclick="tang()">汤妹妹</span></p>
 		</div>
-		<div class="text main" style="height: 350px;">
+		<div class="text main" style="height: 300px;">
 			<p>于2019年7月7日0点0分在一起</p>
 			<p>相见于2019年5月16日10点15分</p>
 			<p>相识于2019年2月20日12点22分</p>
@@ -77,7 +77,7 @@
 			}
 			
 			.main {
-				top: 230px;
+				top: 280px;
 				font-size: 20px;
 			}
 			
@@ -129,9 +129,9 @@
 			}
 			
 			function re() {
-				document.getElementById("together").innerHTML = "在一起 " +sj('2019/07/07 00:00:00')+"("+sj_day('2019/07/07 00:00:00')+"天)";
-				document.getElementById("meet").innerHTML = "相见了 " +sj('2019/05/16 10:15:00')+"("+sj_day('2019/05/16 10:15:00')+"天)";
-				document.getElementById("acquaintance").innerHTML = "相识了 " +sj('2019/02/20 12:22:00')+"("+sj_day('2019/02/20 12:22:00')+"天)";
+				document.getElementById("together").innerHTML = "在一起 " +sj('2019/07/07 00:00:00')+"<span style='display:block;'>("+sj_day('2019/07/07 00:00:00')+"天)</span>";
+				document.getElementById("meet").innerHTML = "相见了 " +sj('2019/05/16 10:15:00')+"<span style='display:block;'>("+sj_day('2019/05/16 10:15:00')+"天)</span>";
+				document.getElementById("acquaintance").innerHTML = "相识了 " +sj('2019/02/20 12:22:00')+"<span style='display:block;'>("+sj_day('2019/02/20 12:22:00')+"天)</span>";
 			}
 			setInterval(re, 1000);
 
