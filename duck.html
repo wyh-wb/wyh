@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>测试</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+    }
+    .main{
+        border: 1px solid #2d3748;
+        width: 90%;
+        text-align: center;
+    }
+    .main td{
+        border: 1px solid #2d3748;
+        height: 40px;
+        line-height: 40px;
+    }
+    .main thead td{
+        font-weight: bolder;
+    }
+    .alert{
+        width:48%;
+        background: #ffffff;
+        position: fixed;
+        top: 188px;
+        left: 26%;
+        display: none;
+        padding: 8px;
+    }
+    .alert table tr{
+        height: 48px;
+    }
+    .alert table tr td{
+    }
+    #body{
+        height:  calc(100vh);
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        display: none;
+        background: #4a5568;
+    }
+</style>
+<body>
+<button onclick="add('新增支出')" style="margin: 8px;">新增支出</button>
+<button style="margin: 8px;" onclick="check()">newData</button>
+<table class="main" cellpadding="0" cellspacing="0">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>名称</td>
+            <td>金额</td>
+            <td>用途</td>
+        </tr>
+    </thead>
+    <tbody id="tbody"> </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td colspan="3" id="total"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<button onclick="addIn('新增收入')" style="margin: 8px;">新增收入</button>
+<button style="margin: 8px;" onclick="checkIn()">newData</button>
+<table class="main" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+        <td>序号</td>
+        <td>日期</td>
+        <td>当日销售额</td>
+        <td>笔数</td>
+        <td>备注</td>
+    </tr>
+    </thead>
+    <tbody id="tbodyIn"> </tbody>
+    <tfoot>
+    <tr>
+        <td>合计</td>
+        <td colspan="4" id="totalIn"></td>
+    </tr>
+    </tfoot>
+</table>
+
+
+
+<!--新增弹框-->
+<div id="body" onclick="quit()"></div>
+<!--新增支出弹框-->
+<div id="alert" class="alert">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td id="alert_title" colspan="2" style="text-align: center">title</td>
+        </tr>
+        <tr>
+            <td style="width: 20%;">名称：</td>
+            <td style="width: 80%"><input type="text" id="alertName" ></td>
+        </tr>
+        <tr>
+            <td>金额：</td>
+            <td><input type="number" id="alertMoney"></td>
+        </tr>
+        <tr>
+            <td>用途：</td>
+            <td><input type="text" id="alertNote"></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;" colspan="2">
+                <button onclick="sure()">确定</button>
+                <button onclick="quit()">取消</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<!--新增收入弹框-->
+<div id="alertIn" class="alert">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <td id="alert_titleIn" colspan="2" style="text-align: center">新增当日收入</td>
+        </tr>
+        <tr>
+            <td style="width: 20%;">日期：</td>
+            <td style="width: 80%"><input type="text" id="alertDate" ></td>
+        </tr>
+        <tr>
+            <td>金额：</td>
+            <td><input type="number" id="alertTotalMoney"></td>
+        </tr>
+        <tr>
+            <td>笔数：</td>
+            <td><input type="text" id="alertNumber"></td>
+        </tr>
+        <tr>
+            <td>备注：</td>
+            <td><textarea type="text" id="alertRemark"></textarea></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;" colspan="2">
+                <button onclick="sureIn()">确定</button>
+                <button onclick="quit()">取消</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+</body>
+<script>
+    var tds="";/*支出的表格行行*/
+    var num=1;/*支出序号*/
+    var total=0;/*支出总金额*/
+    var tdsIn="";/*收入的表格行行*/
+    var numIn=1;/*收入序号*/
+    var totalIn=0;/*收入总金额*/
+    /*支出数据*/
+    var data=[
+        {name:"香料",money:"1222",note:""},
+        {name:"电磁炉",money:"814",note:""},
+        {name:"卡",money:"8.8",note:""},
+        {name:"电子称",money:"1222",note:""},
+        {name:"剪刀",money:"12.9",note:""},
+        {name:"菜刀",money:"12.9",note:""},
+        {name:"大盆",money:"133.68",note:""},
+        {name:"订书针",money:"9.9",note:""},
+        {name:"砧板",money:"17.9",note:""},
+        {name:"三轮车",money:"1550",note:""},
+        {name:"卤味架",money:"900",note:""},
+        {name:"酒",money:"107",note:""},
+        {name:"塑料膜",money:"210",note:""},
+        {name:"调料",money:"80",note:""},
+        {name:"一次性手套",money:"15",note:""},
+        {name:"菜价单",money:"75",note:""},
+        {name:"打包袋",money:"69.6",note:""},
+        {name:"牛皮纸",money:"112",note:""},
+        {name:"汤勺",money:"36.5",note:""},
+        {name:"夜市灯",money:"21.93",note:""},
+        {name:"网勺",money:"72",note:""},
+        {name:"大盆",money:"108",note:""},
+        {name:"二节翅",money:"130",note:""},
+        {name:"锁骨",money:"110",note:""},
+        {name:"鸭脖",money:"215",note:""},
+        {name:"鸭头",money:"430",note:""},
+        {name:"鸡爪",money:"365",note:""},
+        {name:"鸭爪",money:"410",note:""},
+    ];
+    /**/
+    /*收入数据*/
+    var dataIn=[
+        {"date":"2022-11-03","total":"37","number":"3","note":"鸭脖和鸭翅为主"}
+    ];
+    tableLoad();
+    /*点击支出新增*/
+    function add(sj) {
+        document.getElementById("alert_title").innerHTML=sj;
+        document.getElementById("alertName").value="";
+        document.getElementById("alertMoney").value="";
+        document.getElementById("alertNote").value="";
+        document.getElementById("body").style.display="block";
+        document.getElementById("alert").style.display="block";
+    }
+    /*点击收入新增*/
+    function addIn(sj) {
+        document.getElementById("alertDate").value="";
+        document.getElementById("alertTotalMoney").value="";
+        document.getElementById("alertNumber").value="";
+        document.getElementById("alertRemark").value="";
+        document.getElementById("body").style.display="block";
+        document.getElementById("alertIn").style.display="block";
+    }
+    /*支出新增确定*/
+    function sure() {
+        var addData={name:document.getElementById("alertName").value,money:document.getElementById("alertMoney").value,note:document.getElementById("alertNote").value};
+        var addLocal=JSON.parse(localStorage.getItem("newData"));
+        if(addLocal!=null){
+                addLocal.push(addData);
+            }else {
+                addLocal=[];
+                addLocal.push(addData);
+        }
+
+        localStorage.setItem("newData",JSON.stringify(addLocal));
+        tds="<tr><td>"+num+"</td>" +
+            "<td>"+addData.name+"</td>"+
+            "<td>"+addData.money+"</td>"+
+            "<td>"+addData.note+"</td>"+
+            "</tr>";
+        num++
+        total=parseFloat(total)+parseFloat(addData.money);
+        document.getElementById("tbody").innerHTML+=tds;
+        document.getElementById("total").innerHTML=total;
+        document.getElementById("body").style.display="none";
+        document.getElementById("alert").style.display="none";
+    }
+    /*收入新增确定*/
+    function sureIn() {
+        var addData={"date":document.getElementById("alertDate").value,"total":document.getElementById("alertTotalMoney").value,"number":document.getElementById("alertNumber").value,"note":document.getElementById("alertRemark").value};
+        var addLocal=JSON.parse(localStorage.getItem("newDataIn"));
+        if(addLocal!=null){
+            addLocal.push(addData);
+        }else {
+            addLocal=[];
+            addLocal.push(addData);
+        }
+        localStorage.setItem("newDataIn",JSON.stringify(addLocal));
+        tdsIn="<tr><td>"+numIn+"</td>" +
+            "<td>"+addData.date+"</td>"+
+            "<td>"+addData.total+"</td>"+
+            "<td>"+addData.number+"</td>"+
+            "<td>"+addData.note+"</td>"+
+            "</tr>";
+        numIn++
+        totalIn=parseFloat(totalIn)+parseFloat(addData.total);
+        document.getElementById("tbodyIn").innerHTML+=tdsIn;
+        document.getElementById("totalIn").innerHTML=totalIn;
+        document.getElementById("body").style.display="none";
+        document.getElementById("alertIn").style.display="none";
+
+
+    }
+    
+    
+    /*关闭弹窗*/
+    function quit() {
+        document.getElementById("body").style.display="none";
+        document.getElementById("alert").style.display="none";
+        document.getElementById("alertIn").style.display="none";
+    }
+    /*支出，收入表格加载*/
+    function tableLoad() {
+        /*window.localStorage.removeItem("newData");*//*清空支出本地存储*/
+        window.localStorage.removeItem("newDataIn");/*清空收入本地存储*/
+        var tbody=document.getElementById("tbody").innerHTML;
+        /*获取支出数据*/
+        var localData=JSON.parse(localStorage.getItem("newData"));
+        /*console.log(localData);*/
+        if(localData!=null){
+            for(var i=0;i<localData.length;i++){
+                data.push(localData[i]);
+            }
+        };
+
+        for (var i=0;i<data.length;i++){
+            tds+="<tr><td>"+num+"</td>" +
+                "<td>"+data[i].name+"</td>"+
+                "<td>"+data[i].money+"</td>"+
+                "<td>"+data[i].note+"</td>"+
+                "</tr>";
+            num++
+            total+=parseFloat(data[i].money);
+        }
+        document.getElementById("tbody").innerHTML+=tds;
+        document.getElementById("total").innerHTML=total;
+
+        /*获取收入数据*/
+        var localDataIn=JSON.parse(localStorage.getItem("newDataIn"));
+        /*console.log(localData);*/
+        if(localDataIn!=null){
+            for(var i=0;i<localDataIn.length;i++){
+                dataIn.push(localDataIn[i]);
+            }
+        };
+
+        for (var i=0;i<dataIn.length;i++){
+            tdsIn+="<tr><td>"+num+"</td>" +
+                "<td>"+dataIn[i].date+"</td>"+
+                "<td>"+dataIn[i].total+"</td>"+
+                "<td>"+dataIn[i].number+"</td>"+
+                "<td>"+dataIn[i].note+"</td>"+
+                "</tr>";
+            numIn++
+            totalIn+=parseFloat(dataIn[i].total);
+        }
+        document.getElementById("tbodyIn").innerHTML+=tdsIn;
+        document.getElementById("totalIn").innerHTML=totalIn;
+
+
+
+
+
+    }
+    /*查看新缓存的数据*/
+    function check () {
+        var arr=JSON.parse(localStorage.getItem("newData"));
+        alert(JSON.stringify(arr));
+    }
+
+</script>
+</html>
