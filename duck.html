@@ -50,7 +50,7 @@
 <body>
 <button onclick="add('新增支出')" style="margin: 8px;">新增支出</button>
 <button style="margin: 8px;" onclick="check()">newData</button>
-    <button style="margin: 8px;" onclick="clear()">clearData</button>
+    <button style="margin: 8px;" onclick="clearData()">clearData</button>
 <table class="main" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
@@ -71,7 +71,7 @@
 
 <button onclick="addIn('新增收入')" style="margin: 8px;">新增收入</button>
 <button style="margin: 8px;" onclick="checkIn()">newData</button>
-    <button style="margin: 8px;" onclick="clearIn()">clearData</button>
+    <button style="margin: 8px;" onclick="clearDataIn()">clearData</button>
 <table class="main" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
@@ -336,12 +336,12 @@
         alert(JSON.stringify(arr));
     }
     /*清除支出缓存数据*/
-    function clear () {
+    function clearData () {
         window.localStorage.removeItem("newData");/*清空支出本地存储*/
         alert('清除成功');
     }
     /*清除收入缓存的数据*/
-    function clearIn () {
+    function clearDataIn () {
         window.localStorage.removeItem("newDataIn");/*清空收入本地存储*/
         alert('清除成功');
     }
