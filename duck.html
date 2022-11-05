@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-    <title>测试</title>
+    <title>小店</title>
 </head>
 <style>
     *{
@@ -50,6 +50,7 @@
 <body>
 <button onclick="add('新增支出')" style="margin: 8px;">新增支出</button>
 <button style="margin: 8px;" onclick="check()">newData</button>
+    <button style="margin: 8px;" onclick="clear()">clearData</button>
 <table class="main" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
@@ -70,6 +71,7 @@
 
 <button onclick="addIn('新增收入')" style="margin: 8px;">新增收入</button>
 <button style="margin: 8px;" onclick="checkIn()">newData</button>
+    <button style="margin: 8px;" onclick="clearIn()">clearData</button>
 <table class="main" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
@@ -274,8 +276,6 @@
     }
     /*支出，收入表格加载*/
     function tableLoad() {
-        /*window.localStorage.removeItem("newData");*//*清空支出本地存储*/
-        window.localStorage.removeItem("newDataIn");/*清空收入本地存储*/
         var tbody=document.getElementById("tbody").innerHTML;
         /*获取支出数据*/
         var localData=JSON.parse(localStorage.getItem("newData"));
@@ -334,6 +334,16 @@
     function checkIn () {
         var arr=JSON.parse(localStorage.getItem("newDataIn"));
         alert(JSON.stringify(arr));
+    }
+    /*清除支出缓存数据*/
+    function clear () {
+        window.localStorage.removeItem("newData");/*清空支出本地存储*/
+        alert('清除成功');
+    }
+    /*清除收入缓存的数据*/
+    function clearIn () {
+        window.localStorage.removeItem("newDataIn");/*清空收入本地存储*/
+        alert('清除成功');
     }
 </script>
 </html>
